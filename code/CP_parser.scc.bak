@@ -111,24 +111,3 @@ Tokens
 
     integer_literal = (non_zero_digit digit*);
     identifier = (alpha_underscore alpha_numeric_underscore*);
-
-Ignored Tokens
-    white_space,
-    comment;
-
-Productions
-    program         = class_decls;
-    class_decls     = {mult_class_decls} class_decls class_decl
-                        | class_decl;
-    class_decl      = {empty_class_decl} class_hdr l_brace r_brace
-                        | class_hdr l_brace member_decls r_brace;
-    class_hdr       = kclass identifier;
-    member_decls    = {mult_member_decl} member_decls member_decl
-                        | member_decl;
-    member_decl    = {int_decl} int identifier semicolon
-                        | {bool_decl} bool identifier semicolon
-                        | {char_decl} char identifier semicolon
-                        | {string_decl} string identifier semicolon;
-
-
-
