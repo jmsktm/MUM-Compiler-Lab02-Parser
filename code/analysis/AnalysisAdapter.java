@@ -75,19 +75,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAProgram(AProgram node)
+    public void caseAClassDeclsProgram(AClassDeclsProgram node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAMultClassDeclsClassDecls(AMultClassDeclsClassDecls node)
+    public void caseAMultClassDeclClassDecls(AMultClassDeclClassDecls node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAClassDecls(AClassDecls node)
+    public void caseASingleClassDeclClassDecls(ASingleClassDeclClassDecls node)
     {
         defaultCase(node);
     }
@@ -99,13 +99,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAClassDecl(AClassDecl node)
+    public void caseAClassDeclClassDecl(AClassDeclClassDecl node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAClassHdr(AClassHdr node)
+    public void caseAClassHdrClassHdr(AClassHdrClassHdr node)
     {
         defaultCase(node);
     }
@@ -117,31 +117,307 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAMemberDecls(AMemberDecls node)
+    public void caseASingleMemberDeclMemberDecls(ASingleMemberDeclMemberDecls node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAIntDeclMemberDecl(AIntDeclMemberDecl node)
+    public void caseAFieldMember(AFieldMember node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseABoolDeclMemberDecl(ABoolDeclMemberDecl node)
+    public void caseAMethodMember(AMethodMember node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseACharDeclMemberDecl(ACharDeclMemberDecl node)
+    public void caseANoMemberMember(ANoMemberMember node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAStringDeclMemberDecl(AStringDeclMemberDecl node)
+    public void caseAFieldDeclField(AFieldDeclField node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFieldDeclAndInitField(AFieldDeclAndInitField node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAArrDeclField(AArrDeclField node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABoolTypeType(ABoolTypeType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseACharTypeType(ACharTypeType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFloatTypeType(AFloatTypeType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIntTypeType(AIntTypeType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAStringTypeType(AStringTypeType node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodDeclMethod(AMethodDeclMethod node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseANoParamMethodDeclMethod(ANoParamMethodDeclMethod node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodHdrDeclVoidMethodHdr(AMethodHdrDeclVoidMethodHdr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodHdrDeclMethodHdr(AMethodHdrDeclMethodHdr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMultFormalFormals(AMultFormalFormals node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASingleFormalFormals(ASingleFormalFormals node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFormalDeclFormal(AFormalDeclFormal node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAArrFormalDeclFormal(AArrFormalDeclFormal node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABlockDeclBlock(ABlockDeclBlock node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAEmptyBlockBlock(AEmptyBlockBlock node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMultStmtStmts(AMultStmtStmts node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAStmtStmts(AStmtStmts node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASimpleStmtStmt(ASimpleStmtStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIfElseStmtStmt(AIfElseStmtStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAConditionCondition(AConditionCondition node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseALocalDeclSimpleStmt(ALocalDeclSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAssignmentSimpleStmt(AAssignmentSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodCallSimpleStmt(AMethodCallSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAReturnVoidSimpleStmt(AReturnVoidSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAReturnExprSimpleStmt(AReturnExprSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABlockSimpleStmt(ABlockSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAWhileLoopSimpleStmt(AWhileLoopSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADoWhileLoopSimpleStmt(ADoWhileLoopSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseANoStatementSimpleStmt(ANoStatementSimpleStmt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAVarDeclLocalDecl(AVarDeclLocalDecl node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAVarDeclAndInitLocalDecl(AVarDeclAndInitLocalDecl node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAArrDeclLocalDecl(AArrDeclLocalDecl node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFieldSelfFieldAccess(AFieldSelfFieldAccess node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFieldDotAccessFieldAccess(AFieldDotAccessFieldAccess node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAArrayRefFieldAccess(AArrayRefFieldAccess node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIdentifierArrayRefArrayRef(AIdentifierArrayRefArrayRef node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAArrayDotRefArrayRef(AArrayDotRefArrayRef node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodCallNoArgMethodCall(AMethodCallNoArgMethodCall node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodCallWithArgMethodCall(AMethodCallWithArgMethodCall node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodCallWithDotOperNoArgMethodCall(AMethodCallWithDotOperNoArgMethodCall node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMethodCallWithDotOperAndArgMethodCall(AMethodCallWithDotOperAndArgMethodCall node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMultArgArgs(AMultArgArgs node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASingleArgArgs(ASingleArgArgs node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExprDeclExpr(AExprDeclExpr node)
     {
         defaultCase(node);
     }

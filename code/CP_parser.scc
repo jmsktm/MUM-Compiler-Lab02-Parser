@@ -117,18 +117,112 @@ Ignored Tokens
     comment;
 
 Productions
-    program         = class_decls;
-    class_decls     = {mult_class_decls} class_decls class_decl
-                        | class_decl;
-    class_decl      = {empty_class_decl} class_hdr l_brace r_brace
-                        | class_hdr l_brace member_decls r_brace;
-    class_hdr       = kclass identifier;
-    member_decls    = {mult_member_decl} member_decls member_decl
-                        | member_decl;
-    member_decl    = {int_decl} int identifier semicolon
-                        | {bool_decl} bool identifier semicolon
-                        | {char_decl} char identifier semicolon
-                        | {string_decl} string identifier semicolon;
+    program = 
+        {class_decls} class_decls;
+    
+    class_decls =
+        {mult_class_decl} class_decls class_decl
+        | {single_class_decl} class_decl;
+    
+    class_decl =
+        {empty_class_decl} class_hdr l_brace r_brace
+        | {class_decl} class_hdr l_brace member_decls r_brace;
+    
+    class_hdr =
+        {class_hdr} kclass identifier;
+    
+    member_decls =
+        {mult_member_decl} member_decls member
+        | {single_member_decl} member;
+    
+    member =
+        {field} field
+        | {method} method
+        | {no_member} semicolon;
+    
+    field =
+        {field_decl} type identifier semicolon
+        | {field_decl_and_init} type identifier equal_to expr semicolon
+        | {arr_decl} type identifier l_bkt integer_literal r_bkt;
+    
+    type =
+        {bool_type} bool
+        | {char_type} char
+        | {float_type} float
+        | {int_type} int
+        | {string_type} string;
+    
+    method =
+        {method_decl} method_hdr l_par formals r_par block
+        | {no_param_method_decl} method_hdr l_par r_par block;
+    
+    method_hdr =
+        {method_hdr_decl_void} void identifier
+        | {method_hdr_decl} type identifier;
+    
+    formals =
+        {mult_formal} formals comma formal
+        | {single_formal} formal;
+    
+    formal =
+        {formal_decl} type identifier
+        | {arr_formal_decl} type identifier l_bkt r_bkt;
+    
+    block =
+        {block_decl} l_brace stmts r_brace
+        | {empty_block} l_brace r_brace;
+    
+    stmts =
+        {mult_stmt} stmts stmt
+        | {stmt} stmt;
+    
+    stmt = 
+        {simple_stmt} simple_stmt
+        | {if_else_stmt} if condition [if_stmt]:stmt else [else_stmt]:stmt;
+    
+    condition =
+        {condition} l_par expr r_par;
+    
+    simple_stmt =
+        {local_decl} local_decl
+        | {assignment} field_access equal_to expr semicolon
+        | {method_call} method_call semicolon
+        | {return_void} return semicolon
+        | {return_expr} return expr semicolon
+        | {block} block
+        | {while_loop} while condition block
+        | {do_while_loop} do stmts while condition semicolon
+        | {no_statement} semicolon;
+    
+    local_decl = 
+        {var_decl} type identifier semicolon
+        | {var_decl_and_init} type identifier equal_to expr semicolon
+        | {arr_decl} type identifier l_bkt integer_literal r_bkt semicolon;
+    
+    field_access =
+        {field_self} identifier
+        | {field_dot_access} [main_identifier]:identifier dot [sub_identifier]:identifier
+        | {array_ref} array_ref;
+    
+    array_ref =
+        {identifier_array_ref} identifier l_bkt integer_literal r_bkt
+        | {array_dot_ref} [main_identifier]:identifier dot [sub_identifier]:identifier l_bkt integer_literal r_bkt;
+    
+    method_call =
+        {method_call_no_arg} identifier l_par r_par
+        | {method_call_with_arg} identifier l_par integer_literal r_par
+        | {method_call_with_dot_oper_no_arg} [main_identifier]:identifier dot [sub_identifier]:identifier l_par r_par
+        | {method_call_with_dot_oper_and_arg} [main_identifier]:identifier dot [sub_identifier]:identifier l_par args r_par;
+    
+    args =
+        {mult_arg} args comma expr
+        | {single_arg} expr;
+    
+    expr =
+        {expr_and_logical_oper} expr or logical_oper
+        {expr_or_logical_oper} | expr and logical_oper
+        {logical_oper} logical_oper;
+
 
 
 

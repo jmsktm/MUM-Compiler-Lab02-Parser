@@ -8,7 +8,7 @@ import analysis.*;
 public final class AMultMemberDeclMemberDecls extends PMemberDecls
 {
     private PMemberDecls _memberDecls_;
-    private PMemberDecl _memberDecl_;
+    private PMember _member_;
 
     public AMultMemberDeclMemberDecls()
     {
@@ -17,12 +17,12 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
 
     public AMultMemberDeclMemberDecls(
         @SuppressWarnings("hiding") PMemberDecls _memberDecls_,
-        @SuppressWarnings("hiding") PMemberDecl _memberDecl_)
+        @SuppressWarnings("hiding") PMember _member_)
     {
         // Constructor
         setMemberDecls(_memberDecls_);
 
-        setMemberDecl(_memberDecl_);
+        setMember(_member_);
 
     }
 
@@ -31,7 +31,7 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
     {
         return new AMultMemberDeclMemberDecls(
             cloneNode(this._memberDecls_),
-            cloneNode(this._memberDecl_));
+            cloneNode(this._member_));
     }
 
     @Override
@@ -65,16 +65,16 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
         this._memberDecls_ = node;
     }
 
-    public PMemberDecl getMemberDecl()
+    public PMember getMember()
     {
-        return this._memberDecl_;
+        return this._member_;
     }
 
-    public void setMemberDecl(PMemberDecl node)
+    public void setMember(PMember node)
     {
-        if(this._memberDecl_ != null)
+        if(this._member_ != null)
         {
-            this._memberDecl_.parent(null);
+            this._member_.parent(null);
         }
 
         if(node != null)
@@ -87,7 +87,7 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
             node.parent(this);
         }
 
-        this._memberDecl_ = node;
+        this._member_ = node;
     }
 
     @Override
@@ -95,7 +95,7 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
     {
         return ""
             + toString(this._memberDecls_)
-            + toString(this._memberDecl_);
+            + toString(this._member_);
     }
 
     @Override
@@ -108,9 +108,9 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
             return;
         }
 
-        if(this._memberDecl_ == child)
+        if(this._member_ == child)
         {
-            this._memberDecl_ = null;
+            this._member_ = null;
             return;
         }
 
@@ -127,9 +127,9 @@ public final class AMultMemberDeclMemberDecls extends PMemberDecls
             return;
         }
 
-        if(this._memberDecl_ == oldChild)
+        if(this._member_ == oldChild)
         {
-            setMemberDecl((PMemberDecl) newChild);
+            setMember((PMember) newChild);
             return;
         }
 
