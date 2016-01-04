@@ -417,7 +417,181 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAExprDeclExpr(AExprDeclExpr node)
+    public void caseAExprAndLogicalExprExpr(AExprAndLogicalExprExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExprOrLogicalExprExpr(AExprOrLogicalExprExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseALogicalExprExpr(ALogicalExprExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseALessThanLogicalExpr(ALessThanLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAGreaterThanLogicalExpr(AGreaterThanLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseALessThanOrEqLogicalExpr(ALessThanOrEqLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAGreaterThanOrEqLogicalExpr(AGreaterThanOrEqLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAEqualsLogicalExpr(AEqualsLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseANotEqualsLogicalExpr(ANotEqualsLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPlusMinusExprLogicalExpr(APlusMinusExprLogicalExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAdditionPlusMinusExpr(AAdditionPlusMinusExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASubtractionPlusMinusExpr(ASubtractionPlusMinusExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMultDivModExprPlusMinusExpr(AMultDivModExprPlusMinusExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMultiplicationMultDivModExpr(AMultiplicationMultDivModExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADivisionMultDivModExpr(ADivisionMultDivModExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAModuloMultDivModExpr(AModuloMultDivModExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAUnitaryExprMultDivModExpr(AUnitaryExprMultDivModExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAUnaryNotUnitaryExpr(AUnaryNotUnitaryExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAUnaryPlusUnitaryExpr(AUnaryPlusUnitaryExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAUnaryMinusUnitaryExpr(AUnaryMinusUnitaryExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryUnitaryExpr(APrimaryUnitaryExpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryFieldPrimary(APrimaryFieldPrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryMethodCallPrimary(APrimaryMethodCallPrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryIntegerLiteralPrimary(APrimaryIntegerLiteralPrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryCharLiteralPrimary(APrimaryCharLiteralPrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryStringLiteralPrimary(APrimaryStringLiteralPrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryFloatLiteralPrimary(APrimaryFloatLiteralPrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryTruePrimary(APrimaryTruePrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryFalsePrimary(APrimaryFalsePrimary node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPrimaryExprPrimary(APrimaryExprPrimary node)
     {
         defaultCase(node);
     }

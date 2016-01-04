@@ -219,10 +219,43 @@ Productions
         | {single_arg} expr;
     
     expr =
-        {expr_and_logical_oper} expr or logical_oper
-        {expr_or_logical_oper} | expr and logical_oper
-        {logical_oper} logical_oper;
+        {expr_and_logical_expr} expr or logical_expr
+        | {expr_or_logical_expr} expr and logical_expr
+        | {logical_expr} logical_expr;
 
+    logical_expr =
+        {less_than} [plus_minus_src]:plus_minus_expr less_than [plus_minus_target]:plus_minus_expr
+        | {greater_than} [plus_minus_src]:plus_minus_expr greater_than [plus_minus_target]:plus_minus_expr
+        | {less_than_or_eq} [plus_minus_src]:plus_minus_expr less_than_or_eq [plus_minus_target]:plus_minus_expr
+        | {greater_than_or_eq} [plus_minus_src]:plus_minus_expr greater_than_or_eq [plus_minus_target]:plus_minus_expr
+        | {equals} [plus_minus_src]:plus_minus_expr equals [plus_minus_target]:plus_minus_expr
+        | {not_equals} [plus_minus_src]:plus_minus_expr not_equals [plus_minus_target]:plus_minus_expr
+        | {plus_minus_expr} plus_minus_expr;
 
+    plus_minus_expr = 
+        {addition} [mult_div_mod_src]:mult_div_mod_expr plus [mult_div_mod_target]:mult_div_mod_expr
+        | {subtraction} [mult_div_mod_src]:mult_div_mod_expr minus [mult_div_mod_target]:mult_div_mod_expr
+        | {mult_div_mod_expr} mult_div_mod_expr;
 
+    mult_div_mod_expr =
+        {multiplication} [unitary_src]:unitary_expr mult [unitary_target]:unitary_expr
+        | {division} [unitary_src]:unitary_expr div [unitary_target]:unitary_expr
+        | {modulo} [unitary_src]:unitary_expr modulo [unitary_target]:unitary_expr
+        | {unitary_expr} unitary_expr;
 
+    unitary_expr = 
+        {unary_not} not unitary_expr
+        | {unary_plus} plus unitary_expr
+        | {unary_minus} minus unitary_expr
+        | {primary} primary;
+
+    primary =
+        {primary_field} field_access
+        | {primary_method_call} method_call
+        | {primary_integer_literal} integer_literal
+        | {primary_char_literal} char_literal
+        | {primary_string_literal} string_literal
+        | {primary_float_literal} float_lit
+        | {primary_true} true
+        | {primary_false} false
+        | {primary_expr} l_par expr r_par;
