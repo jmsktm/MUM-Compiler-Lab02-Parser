@@ -19,8 +19,9 @@ Helpers
         | ['a' .. 'z'] | ['A' .. 'Z'] | ['0' .. '9'];
     simple_escape_seq = '\\' | '\' ''' | '\n' | '\t' | '\r' | '\b' | '\f' | '\"' ;
 
+    zero = '0';
     digit = ['0' .. '9'];
-    non_zero_digit = [digit - '0'];
+    non_zero_digit = [digit - zero];
     digit_sequence = digit+;
 
     decimal = '.';
@@ -109,7 +110,7 @@ Tokens
     while = 'while';
     void = 'void';
 
-    integer_literal = (non_zero_digit digit*);
+    integer_literal = (zero | non_zero_digit digit*);
     identifier = (alpha_underscore alpha_numeric_underscore*);
 
 Ignored Tokens
@@ -143,7 +144,7 @@ Productions
     field =
         {field_decl} type identifier semicolon
         | {field_decl_and_init} type identifier equal_to expr semicolon
-        | {arr_decl} type identifier l_bkt integer_literal r_bkt;
+        | {arr_decl} type identifier l_bkt integer_param_or_value r_bkt;
     
     type =
         {bool_type} bool
@@ -197,7 +198,7 @@ Productions
     local_decl = 
         {var_decl} type identifier semicolon
         | {var_decl_and_init} type identifier equal_to expr semicolon
-        | {arr_decl} type identifier l_bkt integer_literal r_bkt semicolon;
+        | {arr_decl} type identifier l_bkt integer_param_or_value r_bkt semicolon;
     
     field_access =
         {field_self} identifier
@@ -205,8 +206,8 @@ Productions
         | {array_ref} array_ref;
     
     array_ref =
-        {identifier_array_ref} identifier l_bkt integer_literal r_bkt
-        | {array_dot_ref} [main_identifier]:identifier dot [sub_identifier]:identifier l_bkt integer_literal r_bkt;
+        {identifier_array_ref} identifier l_bkt integer_param_or_value r_bkt
+        | {array_dot_ref} [main_identifier]:identifier dot [sub_identifier]:identifier l_bkt integer_param_or_value r_bkt;
     
     method_call =
         {method_call_no_arg} identifier l_par r_par

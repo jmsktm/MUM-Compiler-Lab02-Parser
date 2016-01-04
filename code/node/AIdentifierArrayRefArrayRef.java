@@ -9,7 +9,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
 {
     private TIdentifier _identifier_;
     private TLBkt _lBkt_;
-    private TIntegerLiteral _integerLiteral_;
+    private PIntegerParamOrValue _integerParamOrValue_;
     private TRBkt _rBkt_;
 
     public AIdentifierArrayRefArrayRef()
@@ -20,7 +20,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
     public AIdentifierArrayRefArrayRef(
         @SuppressWarnings("hiding") TIdentifier _identifier_,
         @SuppressWarnings("hiding") TLBkt _lBkt_,
-        @SuppressWarnings("hiding") TIntegerLiteral _integerLiteral_,
+        @SuppressWarnings("hiding") PIntegerParamOrValue _integerParamOrValue_,
         @SuppressWarnings("hiding") TRBkt _rBkt_)
     {
         // Constructor
@@ -28,7 +28,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
 
         setLBkt(_lBkt_);
 
-        setIntegerLiteral(_integerLiteral_);
+        setIntegerParamOrValue(_integerParamOrValue_);
 
         setRBkt(_rBkt_);
 
@@ -40,7 +40,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
         return new AIdentifierArrayRefArrayRef(
             cloneNode(this._identifier_),
             cloneNode(this._lBkt_),
-            cloneNode(this._integerLiteral_),
+            cloneNode(this._integerParamOrValue_),
             cloneNode(this._rBkt_));
     }
 
@@ -100,16 +100,16 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
         this._lBkt_ = node;
     }
 
-    public TIntegerLiteral getIntegerLiteral()
+    public PIntegerParamOrValue getIntegerParamOrValue()
     {
-        return this._integerLiteral_;
+        return this._integerParamOrValue_;
     }
 
-    public void setIntegerLiteral(TIntegerLiteral node)
+    public void setIntegerParamOrValue(PIntegerParamOrValue node)
     {
-        if(this._integerLiteral_ != null)
+        if(this._integerParamOrValue_ != null)
         {
-            this._integerLiteral_.parent(null);
+            this._integerParamOrValue_.parent(null);
         }
 
         if(node != null)
@@ -122,7 +122,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
             node.parent(this);
         }
 
-        this._integerLiteral_ = node;
+        this._integerParamOrValue_ = node;
     }
 
     public TRBkt getRBkt()
@@ -156,7 +156,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
         return ""
             + toString(this._identifier_)
             + toString(this._lBkt_)
-            + toString(this._integerLiteral_)
+            + toString(this._integerParamOrValue_)
             + toString(this._rBkt_);
     }
 
@@ -176,9 +176,9 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
             return;
         }
 
-        if(this._integerLiteral_ == child)
+        if(this._integerParamOrValue_ == child)
         {
-            this._integerLiteral_ = null;
+            this._integerParamOrValue_ = null;
             return;
         }
 
@@ -207,9 +207,9 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
             return;
         }
 
-        if(this._integerLiteral_ == oldChild)
+        if(this._integerParamOrValue_ == oldChild)
         {
-            setIntegerLiteral((TIntegerLiteral) newChild);
+            setIntegerParamOrValue((PIntegerParamOrValue) newChild);
             return;
         }
 

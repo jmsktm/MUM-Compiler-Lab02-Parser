@@ -391,9 +391,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getLBkt().apply(this);
         }
-        if(node.getIntegerLiteral() != null)
+        if(node.getIntegerParamOrValue() != null)
         {
-            node.getIntegerLiteral().apply(this);
+            node.getIntegerParamOrValue().apply(this);
         }
         if(node.getRBkt() != null)
         {
@@ -1255,9 +1255,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getLBkt().apply(this);
         }
-        if(node.getIntegerLiteral() != null)
+        if(node.getIntegerParamOrValue() != null)
         {
-            node.getIntegerLiteral().apply(this);
+            node.getIntegerParamOrValue().apply(this);
         }
         if(node.getRBkt() != null)
         {
@@ -1363,9 +1363,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getLBkt().apply(this);
         }
-        if(node.getIntegerLiteral() != null)
+        if(node.getIntegerParamOrValue() != null)
         {
-            node.getIntegerLiteral().apply(this);
+            node.getIntegerParamOrValue().apply(this);
         }
         if(node.getRBkt() != null)
         {
@@ -1404,9 +1404,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getLBkt().apply(this);
         }
-        if(node.getIntegerLiteral() != null)
+        if(node.getIntegerParamOrValue() != null)
         {
-            node.getIntegerLiteral().apply(this);
+            node.getIntegerParamOrValue().apply(this);
         }
         if(node.getRBkt() != null)
         {
