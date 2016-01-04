@@ -259,3 +259,7 @@ Productions
         | {primary_true} true
         | {primary_false} false
         | {primary_expr} l_par expr r_par;
+
+    integer_param_or_value =
+        {integer_literal} integer_literal
+        | {identifier} identifier;

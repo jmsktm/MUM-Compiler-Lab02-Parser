@@ -720,6 +720,18 @@ public class Parser
                 push(goTo(27), list, false);
             }
             break;
+            case 87: /* reduce AIntegerLiteralIntegerParamOrValue */
+            {
+                ArrayList<Object> list = new87();
+                push(goTo(28), list, false);
+            }
+            break;
+            case 88: /* reduce AIdentifierIntegerParamOrValue */
+            {
+                ArrayList<Object> list = new88();
+                push(goTo(28), list, false);
+            }
+            break;
         }
     }
 
@@ -2837,6 +2849,46 @@ public class Parser
 
 
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    ArrayList<Object> new87() /* reduce AIntegerLiteralIntegerParamOrValue */
+    {
+        @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
+
+        @SuppressWarnings("unused") ArrayList<Object> nodeArrayList1 = pop();
+        PIntegerParamOrValue pintegerparamorvalueNode1;
+        {
+            // Block
+        TIntegerLiteral tintegerliteralNode2;
+        tintegerliteralNode2 = (TIntegerLiteral)nodeArrayList1.get(0);
+
+        pintegerparamorvalueNode1 = new AIntegerLiteralIntegerParamOrValue(tintegerliteralNode2);
+        }
+	nodeList.add(pintegerparamorvalueNode1);
+        return nodeList;
+    }
+
+
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    ArrayList<Object> new88() /* reduce AIdentifierIntegerParamOrValue */
+    {
+        @SuppressWarnings("hiding") ArrayList<Object> nodeList = new ArrayList<Object>();
+
+        @SuppressWarnings("unused") ArrayList<Object> nodeArrayList1 = pop();
+        PIntegerParamOrValue pintegerparamorvalueNode1;
+        {
+            // Block
+        TIdentifier tidentifierNode2;
+        tidentifierNode2 = (TIdentifier)nodeArrayList1.get(0);
+
+        pintegerparamorvalueNode1 = new AIdentifierIntegerParamOrValue(tidentifierNode2);
+        }
+	nodeList.add(pintegerparamorvalueNode1);
+        return nodeList;
+    }
+
+
+
     private static int[][][] actionTable;
 /*      {
 			{{-1, ERROR, 0}, {36, SHIFT, 1}, },
@@ -3032,6 +3084,7 @@ public class Parser
 			{{-1, 53}, {78, 113}, {79, 114}, },
 			{{-1, 54}, {38, 62}, {39, 63}, {40, 64}, {80, 115}, {81, 116}, {82, 117}, },
 			{{-1, 55}, },
+			{{-1, -1}, },
         };*/
     private static String[] errorMessages;
 /*      {

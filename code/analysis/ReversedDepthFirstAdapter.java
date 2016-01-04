@@ -2358,4 +2358,46 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         }
         outAPrimaryExprPrimary(node);
     }
+
+    public void inAIntegerLiteralIntegerParamOrValue(AIntegerLiteralIntegerParamOrValue node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAIntegerLiteralIntegerParamOrValue(AIntegerLiteralIntegerParamOrValue node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAIntegerLiteralIntegerParamOrValue(AIntegerLiteralIntegerParamOrValue node)
+    {
+        inAIntegerLiteralIntegerParamOrValue(node);
+        if(node.getIntegerLiteral() != null)
+        {
+            node.getIntegerLiteral().apply(this);
+        }
+        outAIntegerLiteralIntegerParamOrValue(node);
+    }
+
+    public void inAIdentifierIntegerParamOrValue(AIdentifierIntegerParamOrValue node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAIdentifierIntegerParamOrValue(AIdentifierIntegerParamOrValue node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAIdentifierIntegerParamOrValue(AIdentifierIntegerParamOrValue node)
+    {
+        inAIdentifierIntegerParamOrValue(node);
+        if(node.getIdentifier() != null)
+        {
+            node.getIdentifier().apply(this);
+        }
+        outAIdentifierIntegerParamOrValue(node);
+    }
 }

@@ -597,6 +597,18 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseAIntegerLiteralIntegerParamOrValue(AIntegerLiteralIntegerParamOrValue node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIdentifierIntegerParamOrValue(AIdentifierIntegerParamOrValue node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTComment(TComment node)
     {
         defaultCase(node);

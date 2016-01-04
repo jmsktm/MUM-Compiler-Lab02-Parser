@@ -99,6 +99,8 @@ public interface Analysis extends Switch
     void caseAPrimaryTruePrimary(APrimaryTruePrimary node);
     void caseAPrimaryFalsePrimary(APrimaryFalsePrimary node);
     void caseAPrimaryExprPrimary(APrimaryExprPrimary node);
+    void caseAIntegerLiteralIntegerParamOrValue(AIntegerLiteralIntegerParamOrValue node);
+    void caseAIdentifierIntegerParamOrValue(AIdentifierIntegerParamOrValue node);
 
     void caseTComment(TComment node);
     void caseTStringLiteral(TStringLiteral node);
