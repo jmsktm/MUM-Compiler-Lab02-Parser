@@ -58,11 +58,9 @@ public interface Analysis extends Switch
     void caseAVarDeclLocalDecl(AVarDeclLocalDecl node);
     void caseAVarDeclAndInitLocalDecl(AVarDeclAndInitLocalDecl node);
     void caseAArrDeclLocalDecl(AArrDeclLocalDecl node);
-    void caseAFieldSelfFieldAccess(AFieldSelfFieldAccess node);
-    void caseAFieldDotAccessFieldAccess(AFieldDotAccessFieldAccess node);
-    void caseAArrayRefFieldAccess(AArrayRefFieldAccess node);
-    void caseAIdentifierArrayRefArrayRef(AIdentifierArrayRefArrayRef node);
-    void caseAArrayDotRefArrayRef(AArrayDotRefArrayRef node);
+    void caseAIdentifierFieldAccessFieldAccess(AIdentifierFieldAccessFieldAccess node);
+    void caseAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node);
+    void caseAFieldExtensionFieldAccess(AFieldExtensionFieldAccess node);
     void caseAMethodCallNoArgMethodCall(AMethodCallNoArgMethodCall node);
     void caseAMethodCallWithArgMethodCall(AMethodCallWithArgMethodCall node);
     void caseAMethodCallWithDotOperNoArgMethodCall(AMethodCallWithDotOperNoArgMethodCall node);

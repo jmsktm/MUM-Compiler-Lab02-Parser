@@ -5,56 +5,56 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AFieldDotAccessFieldAccess extends PFieldAccess
+public final class AFieldExtensionFieldAccess extends PFieldAccess
 {
-    private TIdentifier _mainIdentifier_;
+    private TIdentifier _identifier_;
     private TDot _dot_;
-    private TIdentifier _subIdentifier_;
+    private PFieldAccess _fieldAccess_;
 
-    public AFieldDotAccessFieldAccess()
+    public AFieldExtensionFieldAccess()
     {
         // Constructor
     }
 
-    public AFieldDotAccessFieldAccess(
-        @SuppressWarnings("hiding") TIdentifier _mainIdentifier_,
+    public AFieldExtensionFieldAccess(
+        @SuppressWarnings("hiding") TIdentifier _identifier_,
         @SuppressWarnings("hiding") TDot _dot_,
-        @SuppressWarnings("hiding") TIdentifier _subIdentifier_)
+        @SuppressWarnings("hiding") PFieldAccess _fieldAccess_)
     {
         // Constructor
-        setMainIdentifier(_mainIdentifier_);
+        setIdentifier(_identifier_);
 
         setDot(_dot_);
 
-        setSubIdentifier(_subIdentifier_);
+        setFieldAccess(_fieldAccess_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AFieldDotAccessFieldAccess(
-            cloneNode(this._mainIdentifier_),
+        return new AFieldExtensionFieldAccess(
+            cloneNode(this._identifier_),
             cloneNode(this._dot_),
-            cloneNode(this._subIdentifier_));
+            cloneNode(this._fieldAccess_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAFieldDotAccessFieldAccess(this);
+        ((Analysis) sw).caseAFieldExtensionFieldAccess(this);
     }
 
-    public TIdentifier getMainIdentifier()
+    public TIdentifier getIdentifier()
     {
-        return this._mainIdentifier_;
+        return this._identifier_;
     }
 
-    public void setMainIdentifier(TIdentifier node)
+    public void setIdentifier(TIdentifier node)
     {
-        if(this._mainIdentifier_ != null)
+        if(this._identifier_ != null)
         {
-            this._mainIdentifier_.parent(null);
+            this._identifier_.parent(null);
         }
 
         if(node != null)
@@ -67,7 +67,7 @@ public final class AFieldDotAccessFieldAccess extends PFieldAccess
             node.parent(this);
         }
 
-        this._mainIdentifier_ = node;
+        this._identifier_ = node;
     }
 
     public TDot getDot()
@@ -95,16 +95,16 @@ public final class AFieldDotAccessFieldAccess extends PFieldAccess
         this._dot_ = node;
     }
 
-    public TIdentifier getSubIdentifier()
+    public PFieldAccess getFieldAccess()
     {
-        return this._subIdentifier_;
+        return this._fieldAccess_;
     }
 
-    public void setSubIdentifier(TIdentifier node)
+    public void setFieldAccess(PFieldAccess node)
     {
-        if(this._subIdentifier_ != null)
+        if(this._fieldAccess_ != null)
         {
-            this._subIdentifier_.parent(null);
+            this._fieldAccess_.parent(null);
         }
 
         if(node != null)
@@ -117,25 +117,25 @@ public final class AFieldDotAccessFieldAccess extends PFieldAccess
             node.parent(this);
         }
 
-        this._subIdentifier_ = node;
+        this._fieldAccess_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._mainIdentifier_)
+            + toString(this._identifier_)
             + toString(this._dot_)
-            + toString(this._subIdentifier_);
+            + toString(this._fieldAccess_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._mainIdentifier_ == child)
+        if(this._identifier_ == child)
         {
-            this._mainIdentifier_ = null;
+            this._identifier_ = null;
             return;
         }
 
@@ -145,9 +145,9 @@ public final class AFieldDotAccessFieldAccess extends PFieldAccess
             return;
         }
 
-        if(this._subIdentifier_ == child)
+        if(this._fieldAccess_ == child)
         {
-            this._subIdentifier_ = null;
+            this._fieldAccess_ = null;
             return;
         }
 
@@ -158,9 +158,9 @@ public final class AFieldDotAccessFieldAccess extends PFieldAccess
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._mainIdentifier_ == oldChild)
+        if(this._identifier_ == oldChild)
         {
-            setMainIdentifier((TIdentifier) newChild);
+            setIdentifier((TIdentifier) newChild);
             return;
         }
 
@@ -170,9 +170,9 @@ public final class AFieldDotAccessFieldAccess extends PFieldAccess
             return;
         }
 
-        if(this._subIdentifier_ == oldChild)
+        if(this._fieldAccess_ == oldChild)
         {
-            setSubIdentifier((TIdentifier) newChild);
+            setFieldAccess((PFieldAccess) newChild);
             return;
         }
 

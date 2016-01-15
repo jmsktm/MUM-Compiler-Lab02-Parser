@@ -5,22 +5,22 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AIdentifierArrayRefArrayRef extends PArrayRef
+public final class AArrayFieldAccessFieldAccess extends PFieldAccess
 {
     private TIdentifier _identifier_;
     private TLBkt _lBkt_;
-    private PIntegerParamOrValue _integerParamOrValue_;
+    private PFieldAccess _fieldAccess_;
     private TRBkt _rBkt_;
 
-    public AIdentifierArrayRefArrayRef()
+    public AArrayFieldAccessFieldAccess()
     {
         // Constructor
     }
 
-    public AIdentifierArrayRefArrayRef(
+    public AArrayFieldAccessFieldAccess(
         @SuppressWarnings("hiding") TIdentifier _identifier_,
         @SuppressWarnings("hiding") TLBkt _lBkt_,
-        @SuppressWarnings("hiding") PIntegerParamOrValue _integerParamOrValue_,
+        @SuppressWarnings("hiding") PFieldAccess _fieldAccess_,
         @SuppressWarnings("hiding") TRBkt _rBkt_)
     {
         // Constructor
@@ -28,7 +28,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
 
         setLBkt(_lBkt_);
 
-        setIntegerParamOrValue(_integerParamOrValue_);
+        setFieldAccess(_fieldAccess_);
 
         setRBkt(_rBkt_);
 
@@ -37,17 +37,17 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
     @Override
     public Object clone()
     {
-        return new AIdentifierArrayRefArrayRef(
+        return new AArrayFieldAccessFieldAccess(
             cloneNode(this._identifier_),
             cloneNode(this._lBkt_),
-            cloneNode(this._integerParamOrValue_),
+            cloneNode(this._fieldAccess_),
             cloneNode(this._rBkt_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAIdentifierArrayRefArrayRef(this);
+        ((Analysis) sw).caseAArrayFieldAccessFieldAccess(this);
     }
 
     public TIdentifier getIdentifier()
@@ -100,16 +100,16 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
         this._lBkt_ = node;
     }
 
-    public PIntegerParamOrValue getIntegerParamOrValue()
+    public PFieldAccess getFieldAccess()
     {
-        return this._integerParamOrValue_;
+        return this._fieldAccess_;
     }
 
-    public void setIntegerParamOrValue(PIntegerParamOrValue node)
+    public void setFieldAccess(PFieldAccess node)
     {
-        if(this._integerParamOrValue_ != null)
+        if(this._fieldAccess_ != null)
         {
-            this._integerParamOrValue_.parent(null);
+            this._fieldAccess_.parent(null);
         }
 
         if(node != null)
@@ -122,7 +122,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
             node.parent(this);
         }
 
-        this._integerParamOrValue_ = node;
+        this._fieldAccess_ = node;
     }
 
     public TRBkt getRBkt()
@@ -156,7 +156,7 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
         return ""
             + toString(this._identifier_)
             + toString(this._lBkt_)
-            + toString(this._integerParamOrValue_)
+            + toString(this._fieldAccess_)
             + toString(this._rBkt_);
     }
 
@@ -176,9 +176,9 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
             return;
         }
 
-        if(this._integerParamOrValue_ == child)
+        if(this._fieldAccess_ == child)
         {
-            this._integerParamOrValue_ = null;
+            this._fieldAccess_ = null;
             return;
         }
 
@@ -207,9 +207,9 @@ public final class AIdentifierArrayRefArrayRef extends PArrayRef
             return;
         }
 
-        if(this._integerParamOrValue_ == oldChild)
+        if(this._fieldAccess_ == oldChild)
         {
-            setIntegerParamOrValue((PIntegerParamOrValue) newChild);
+            setFieldAccess((PFieldAccess) newChild);
             return;
         }
 

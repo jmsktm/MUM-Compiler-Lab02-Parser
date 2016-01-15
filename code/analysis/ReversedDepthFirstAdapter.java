@@ -1270,98 +1270,48 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         outAArrDeclLocalDecl(node);
     }
 
-    public void inAFieldSelfFieldAccess(AFieldSelfFieldAccess node)
+    public void inAIdentifierFieldAccessFieldAccess(AIdentifierFieldAccessFieldAccess node)
     {
         defaultIn(node);
     }
 
-    public void outAFieldSelfFieldAccess(AFieldSelfFieldAccess node)
+    public void outAIdentifierFieldAccessFieldAccess(AIdentifierFieldAccessFieldAccess node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAFieldSelfFieldAccess(AFieldSelfFieldAccess node)
+    public void caseAIdentifierFieldAccessFieldAccess(AIdentifierFieldAccessFieldAccess node)
     {
-        inAFieldSelfFieldAccess(node);
+        inAIdentifierFieldAccessFieldAccess(node);
         if(node.getIdentifier() != null)
         {
             node.getIdentifier().apply(this);
         }
-        outAFieldSelfFieldAccess(node);
+        outAIdentifierFieldAccessFieldAccess(node);
     }
 
-    public void inAFieldDotAccessFieldAccess(AFieldDotAccessFieldAccess node)
+    public void inAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node)
     {
         defaultIn(node);
     }
 
-    public void outAFieldDotAccessFieldAccess(AFieldDotAccessFieldAccess node)
+    public void outAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAFieldDotAccessFieldAccess(AFieldDotAccessFieldAccess node)
+    public void caseAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node)
     {
-        inAFieldDotAccessFieldAccess(node);
-        if(node.getSubIdentifier() != null)
-        {
-            node.getSubIdentifier().apply(this);
-        }
-        if(node.getDot() != null)
-        {
-            node.getDot().apply(this);
-        }
-        if(node.getMainIdentifier() != null)
-        {
-            node.getMainIdentifier().apply(this);
-        }
-        outAFieldDotAccessFieldAccess(node);
-    }
-
-    public void inAArrayRefFieldAccess(AArrayRefFieldAccess node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAArrayRefFieldAccess(AArrayRefFieldAccess node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAArrayRefFieldAccess(AArrayRefFieldAccess node)
-    {
-        inAArrayRefFieldAccess(node);
-        if(node.getArrayRef() != null)
-        {
-            node.getArrayRef().apply(this);
-        }
-        outAArrayRefFieldAccess(node);
-    }
-
-    public void inAIdentifierArrayRefArrayRef(AIdentifierArrayRefArrayRef node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAIdentifierArrayRefArrayRef(AIdentifierArrayRefArrayRef node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAIdentifierArrayRefArrayRef(AIdentifierArrayRefArrayRef node)
-    {
-        inAIdentifierArrayRefArrayRef(node);
+        inAArrayFieldAccessFieldAccess(node);
         if(node.getRBkt() != null)
         {
             node.getRBkt().apply(this);
         }
-        if(node.getIntegerParamOrValue() != null)
+        if(node.getFieldAccess() != null)
         {
-            node.getIntegerParamOrValue().apply(this);
+            node.getFieldAccess().apply(this);
         }
         if(node.getLBkt() != null)
         {
@@ -1371,48 +1321,36 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getIdentifier().apply(this);
         }
-        outAIdentifierArrayRefArrayRef(node);
+        outAArrayFieldAccessFieldAccess(node);
     }
 
-    public void inAArrayDotRefArrayRef(AArrayDotRefArrayRef node)
+    public void inAFieldExtensionFieldAccess(AFieldExtensionFieldAccess node)
     {
         defaultIn(node);
     }
 
-    public void outAArrayDotRefArrayRef(AArrayDotRefArrayRef node)
+    public void outAFieldExtensionFieldAccess(AFieldExtensionFieldAccess node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAArrayDotRefArrayRef(AArrayDotRefArrayRef node)
+    public void caseAFieldExtensionFieldAccess(AFieldExtensionFieldAccess node)
     {
-        inAArrayDotRefArrayRef(node);
-        if(node.getRBkt() != null)
+        inAFieldExtensionFieldAccess(node);
+        if(node.getFieldAccess() != null)
         {
-            node.getRBkt().apply(this);
-        }
-        if(node.getIntegerParamOrValue() != null)
-        {
-            node.getIntegerParamOrValue().apply(this);
-        }
-        if(node.getLBkt() != null)
-        {
-            node.getLBkt().apply(this);
-        }
-        if(node.getSubIdentifier() != null)
-        {
-            node.getSubIdentifier().apply(this);
+            node.getFieldAccess().apply(this);
         }
         if(node.getDot() != null)
         {
             node.getDot().apply(this);
         }
-        if(node.getMainIdentifier() != null)
+        if(node.getIdentifier() != null)
         {
-            node.getMainIdentifier().apply(this);
+            node.getIdentifier().apply(this);
         }
-        outAArrayDotRefArrayRef(node);
+        outAFieldExtensionFieldAccess(node);
     }
 
     public void inAMethodCallNoArgMethodCall(AMethodCallNoArgMethodCall node)

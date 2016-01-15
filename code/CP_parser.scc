@@ -201,13 +201,9 @@ Productions
         | {arr_decl} type identifier l_bkt integer_param_or_value r_bkt semicolon;
     
     field_access =
-        {field_self} identifier
-        | {field_dot_access} [main_identifier]:identifier dot [sub_identifier]:identifier
-        | {array_ref} array_ref;
-    
-    array_ref =
-        {identifier_array_ref} identifier l_bkt integer_param_or_value r_bkt
-        | {array_dot_ref} [main_identifier]:identifier dot [sub_identifier]:identifier l_bkt integer_param_or_value r_bkt;
+        {identifier_field_access} identifier
+        | {array_field_access} identifier l_bkt field_access r_bkt
+        | {field_extension} identifier dot field_access;
     
     method_call =
         {method_call_no_arg} identifier l_par r_par

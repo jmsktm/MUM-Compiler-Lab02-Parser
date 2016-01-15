@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AFieldSelfFieldAccess extends PFieldAccess
+public final class AIdentifierFieldAccessFieldAccess extends PFieldAccess
 {
     private TIdentifier _identifier_;
 
-    public AFieldSelfFieldAccess()
+    public AIdentifierFieldAccessFieldAccess()
     {
         // Constructor
     }
 
-    public AFieldSelfFieldAccess(
+    public AIdentifierFieldAccessFieldAccess(
         @SuppressWarnings("hiding") TIdentifier _identifier_)
     {
         // Constructor
@@ -25,14 +25,14 @@ public final class AFieldSelfFieldAccess extends PFieldAccess
     @Override
     public Object clone()
     {
-        return new AFieldSelfFieldAccess(
+        return new AIdentifierFieldAccessFieldAccess(
             cloneNode(this._identifier_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAFieldSelfFieldAccess(this);
+        ((Analysis) sw).caseAIdentifierFieldAccessFieldAccess(this);
     }
 
     public TIdentifier getIdentifier()

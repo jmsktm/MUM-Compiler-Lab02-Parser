@@ -351,31 +351,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAFieldSelfFieldAccess(AFieldSelfFieldAccess node)
+    public void caseAIdentifierFieldAccessFieldAccess(AIdentifierFieldAccessFieldAccess node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAFieldDotAccessFieldAccess(AFieldDotAccessFieldAccess node)
+    public void caseAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAArrayRefFieldAccess(AArrayRefFieldAccess node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAIdentifierArrayRefArrayRef(AIdentifierArrayRefArrayRef node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAArrayDotRefArrayRef(AArrayDotRefArrayRef node)
+    public void caseAFieldExtensionFieldAccess(AFieldExtensionFieldAccess node)
     {
         defaultCase(node);
     }
