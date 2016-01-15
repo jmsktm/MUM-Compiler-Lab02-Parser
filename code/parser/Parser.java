@@ -2415,14 +2415,14 @@ public class Parser
         PPlusMinusExpr pplusminusexprNode1;
         {
             // Block
-        PMultDivModExpr pmultdivmodexprNode2;
+        PPlusMinusExpr pplusminusexprNode2;
         TPlus tplusNode3;
         PMultDivModExpr pmultdivmodexprNode4;
-        pmultdivmodexprNode2 = (PMultDivModExpr)nodeArrayList1.get(0);
+        pplusminusexprNode2 = (PPlusMinusExpr)nodeArrayList1.get(0);
         tplusNode3 = (TPlus)nodeArrayList2.get(0);
         pmultdivmodexprNode4 = (PMultDivModExpr)nodeArrayList3.get(0);
 
-        pplusminusexprNode1 = new AAdditionPlusMinusExpr(pmultdivmodexprNode2, tplusNode3, pmultdivmodexprNode4);
+        pplusminusexprNode1 = new AAdditionPlusMinusExpr(pplusminusexprNode2, tplusNode3, pmultdivmodexprNode4);
         }
 	nodeList.add(pplusminusexprNode1);
         return nodeList;
@@ -2441,14 +2441,14 @@ public class Parser
         PPlusMinusExpr pplusminusexprNode1;
         {
             // Block
-        PMultDivModExpr pmultdivmodexprNode2;
+        PPlusMinusExpr pplusminusexprNode2;
         TMinus tminusNode3;
         PMultDivModExpr pmultdivmodexprNode4;
-        pmultdivmodexprNode2 = (PMultDivModExpr)nodeArrayList1.get(0);
+        pplusminusexprNode2 = (PPlusMinusExpr)nodeArrayList1.get(0);
         tminusNode3 = (TMinus)nodeArrayList2.get(0);
         pmultdivmodexprNode4 = (PMultDivModExpr)nodeArrayList3.get(0);
 
-        pplusminusexprNode1 = new ASubtractionPlusMinusExpr(pmultdivmodexprNode2, tminusNode3, pmultdivmodexprNode4);
+        pplusminusexprNode1 = new ASubtractionPlusMinusExpr(pplusminusexprNode2, tminusNode3, pmultdivmodexprNode4);
         }
 	nodeList.add(pplusminusexprNode1);
         return nodeList;
@@ -2487,14 +2487,14 @@ public class Parser
         PMultDivModExpr pmultdivmodexprNode1;
         {
             // Block
-        PUnitaryExpr punitaryexprNode2;
+        PMultDivModExpr pmultdivmodexprNode2;
         TMult tmultNode3;
         PUnitaryExpr punitaryexprNode4;
-        punitaryexprNode2 = (PUnitaryExpr)nodeArrayList1.get(0);
+        pmultdivmodexprNode2 = (PMultDivModExpr)nodeArrayList1.get(0);
         tmultNode3 = (TMult)nodeArrayList2.get(0);
         punitaryexprNode4 = (PUnitaryExpr)nodeArrayList3.get(0);
 
-        pmultdivmodexprNode1 = new AMultiplicationMultDivModExpr(punitaryexprNode2, tmultNode3, punitaryexprNode4);
+        pmultdivmodexprNode1 = new AMultiplicationMultDivModExpr(pmultdivmodexprNode2, tmultNode3, punitaryexprNode4);
         }
 	nodeList.add(pmultdivmodexprNode1);
         return nodeList;
@@ -2513,14 +2513,14 @@ public class Parser
         PMultDivModExpr pmultdivmodexprNode1;
         {
             // Block
-        PUnitaryExpr punitaryexprNode2;
+        PMultDivModExpr pmultdivmodexprNode2;
         TDiv tdivNode3;
         PUnitaryExpr punitaryexprNode4;
-        punitaryexprNode2 = (PUnitaryExpr)nodeArrayList1.get(0);
+        pmultdivmodexprNode2 = (PMultDivModExpr)nodeArrayList1.get(0);
         tdivNode3 = (TDiv)nodeArrayList2.get(0);
         punitaryexprNode4 = (PUnitaryExpr)nodeArrayList3.get(0);
 
-        pmultdivmodexprNode1 = new ADivisionMultDivModExpr(punitaryexprNode2, tdivNode3, punitaryexprNode4);
+        pmultdivmodexprNode1 = new ADivisionMultDivModExpr(pmultdivmodexprNode2, tdivNode3, punitaryexprNode4);
         }
 	nodeList.add(pmultdivmodexprNode1);
         return nodeList;
@@ -2539,14 +2539,14 @@ public class Parser
         PMultDivModExpr pmultdivmodexprNode1;
         {
             // Block
-        PUnitaryExpr punitaryexprNode2;
+        PMultDivModExpr pmultdivmodexprNode2;
         TModulo tmoduloNode3;
         PUnitaryExpr punitaryexprNode4;
-        punitaryexprNode2 = (PUnitaryExpr)nodeArrayList1.get(0);
+        pmultdivmodexprNode2 = (PMultDivModExpr)nodeArrayList1.get(0);
         tmoduloNode3 = (TModulo)nodeArrayList2.get(0);
         punitaryexprNode4 = (PUnitaryExpr)nodeArrayList3.get(0);
 
-        pmultdivmodexprNode1 = new AModuloMultDivModExpr(punitaryexprNode2, tmoduloNode3, punitaryexprNode4);
+        pmultdivmodexprNode1 = new AModuloMultDivModExpr(pmultdivmodexprNode2, tmoduloNode3, punitaryexprNode4);
         }
 	nodeList.add(pmultdivmodexprNode1);
         return nodeList;
@@ -2945,9 +2945,9 @@ public class Parser
 			{{-1, REDUCE, 79}, },
 			{{-1, ERROR, 52}, {13, SHIFT, 71}, {14, SHIFT, 72}, {17, SHIFT, 73}, },
 			{{-1, REDUCE, 59}, },
-			{{-1, REDUCE, 66}, {8, SHIFT, 74}, {9, SHIFT, 75}, {10, SHIFT, 76}, {11, SHIFT, 77}, {12, SHIFT, 78}, {25, SHIFT, 79}, },
-			{{-1, REDUCE, 69}, {4, SHIFT, 80}, {5, SHIFT, 81}, },
-			{{-1, REDUCE, 73}, {6, SHIFT, 82}, {7, SHIFT, 83}, {29, SHIFT, 84}, },
+			{{-1, REDUCE, 66}, {4, SHIFT, 74}, {5, SHIFT, 75}, {8, SHIFT, 76}, {9, SHIFT, 77}, {10, SHIFT, 78}, {11, SHIFT, 79}, {12, SHIFT, 80}, {25, SHIFT, 81}, },
+			{{-1, REDUCE, 69}, {6, SHIFT, 82}, {7, SHIFT, 83}, {29, SHIFT, 84}, },
+			{{-1, REDUCE, 73}, },
 			{{-1, REDUCE, 77}, },
 			{{-1, ERROR, 58}, {17, SHIFT, 85}, {21, SHIFT, 58}, {22, SHIFT, 86}, {31, SHIFT, 11}, {33, SHIFT, 12}, {37, SHIFT, 87}, {40, SHIFT, 13}, {41, SHIFT, 88}, {42, SHIFT, 14}, {48, SHIFT, 89}, {50, SHIFT, 15}, {54, SHIFT, 90}, {57, SHIFT, 48}, },
 			{{-1, REDUCE, 20}, },
@@ -3000,14 +3000,14 @@ public class Parser
 			{{-1, REDUCE, 47}, {19, SHIFT, 134}, {23, SHIFT, 135}, },
 			{{-1, REDUCE, 58}, },
 			{{-1, REDUCE, 57}, },
-			{{-1, REDUCE, 60}, },
-			{{-1, REDUCE, 62}, },
-			{{-1, REDUCE, 61}, },
-			{{-1, REDUCE, 63}, },
-			{{-1, REDUCE, 64}, },
-			{{-1, REDUCE, 65}, },
-			{{-1, REDUCE, 67}, },
-			{{-1, REDUCE, 68}, },
+			{{-1, REDUCE, 67}, {6, SHIFT, 82}, {7, SHIFT, 83}, {29, SHIFT, 84}, },
+			{{-1, REDUCE, 68}, {6, SHIFT, 82}, {7, SHIFT, 83}, {29, SHIFT, 84}, },
+			{{-1, REDUCE, 60}, {4, SHIFT, 74}, {5, SHIFT, 75}, },
+			{{-1, REDUCE, 62}, {4, SHIFT, 74}, {5, SHIFT, 75}, },
+			{{-1, REDUCE, 61}, {4, SHIFT, 74}, {5, SHIFT, 75}, },
+			{{-1, REDUCE, 63}, {4, SHIFT, 74}, {5, SHIFT, 75}, },
+			{{-1, REDUCE, 64}, {4, SHIFT, 74}, {5, SHIFT, 75}, },
+			{{-1, REDUCE, 65}, {4, SHIFT, 74}, {5, SHIFT, 75}, },
 			{{-1, REDUCE, 70}, },
 			{{-1, REDUCE, 71}, },
 			{{-1, REDUCE, 72}, },
@@ -3082,8 +3082,8 @@ public class Parser
 			{{-1, 146}, },
 			{{-1, 52}, {43, 67}, {89, 124}, {121, 137}, {129, 144}, {134, 147}, {143, 153}, {155, 162}, },
 			{{-1, 53}, {71, 107}, {72, 108}, },
-			{{-1, 54}, {74, 109}, {75, 110}, {76, 111}, {77, 112}, {78, 113}, {79, 114}, },
-			{{-1, 55}, {80, 115}, {81, 116}, },
+			{{-1, 54}, {76, 111}, {77, 112}, {78, 113}, {79, 114}, {80, 115}, {81, 116}, },
+			{{-1, 55}, {74, 109}, {75, 110}, },
 			{{-1, 56}, {40, 64}, {41, 65}, {42, 66}, {82, 117}, {83, 118}, {84, 119}, },
 			{{-1, 57}, },
 			{{-1, 37}, {69, 105}, {135, 148}, {142, 152}, },
@@ -3108,7 +3108,6 @@ public class Parser
 			"expecting: '+', '-', '*', '/', '<', '<=', '>', '>=', '==', '&&', '||', ';', ',', ')', '!=', '=', '%'",
 			"expecting: '&&', '||', ';'",
 			"expecting: '&&', '||', ';', ',', ')'",
-			"expecting: '<', '<=', '>', '>=', '==', '&&', '||', ';', ',', ')', '!='",
 			"expecting: '+', '-', '<', '<=', '>', '>=', '==', '&&', '||', ';', ',', ')', '!='",
 			"expecting: ';', '{', '}', 'bool', 'char', 'do', 'float', 'if', 'int', 'return', 'string', 'while', identifier",
 			"expecting: ',', ')', '['",
@@ -3123,6 +3122,7 @@ public class Parser
 			"expecting: ';'",
 			"expecting: ')'",
 			"expecting: '+', '-', '*', '/', '<', '<=', '>', '>=', '==', '&&', '||', ';', ',', '(', ')', '[', '!=', '=', '%'",
+			"expecting: '+', '-', '&&', '||', ';', ',', ')'",
 			"expecting: ';', '[', '='",
 			"expecting: string literal, char literal, '+', '-', '!', '(', ')', float lit, 'false', 'true', integer literal, identifier",
 			"expecting: 'else'",
@@ -3131,7 +3131,7 @@ public class Parser
         };*/
     private static int[] errors;
 /*      {
-			0, 1, 2, 3, 3, 4, 4, 3, 5, 5, 3, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 5, 6, 6, 3, 5, 7, 8, 5, 9, 10, 4, 1, 11, 11, 12, 12, 12, 13, 13, 10, 10, 10, 10, 13, 13, 13, 13, 14, 13, 15, 13, 16, 17, 18, 19, 13, 13, 20, 5, 21, 22, 4, 5, 13, 13, 13, 23, 24, 9, 1, 10, 10, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 25, 26, 27, 6, 28, 6, 1, 25, 20, 20, 25, 25, 29, 30, 12, 11, 5, 13, 13, 31, 12, 32, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 19, 19, 19, 27, 10, 27, 25, 16, 4, 33, 26, 20, 10, 25, 11, 13, 15, 34, 9, 6, 23, 35, 25, 25, 25, 9, 10, 16, 13, 11, 36, 12, 37, 27, 27, 12, 16, 25, 10, 13, 15, 25, 25, 30, 25, 36, 25, 
+			0, 1, 2, 3, 3, 4, 4, 3, 5, 5, 3, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 5, 6, 6, 3, 5, 7, 8, 5, 9, 10, 4, 1, 11, 11, 12, 12, 12, 13, 13, 10, 10, 10, 10, 13, 13, 13, 13, 14, 13, 15, 13, 16, 17, 18, 13, 13, 13, 19, 5, 20, 21, 4, 5, 13, 13, 13, 22, 23, 9, 1, 10, 10, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 24, 25, 26, 6, 27, 6, 1, 24, 19, 19, 24, 24, 28, 29, 12, 11, 5, 13, 13, 30, 12, 31, 17, 17, 13, 13, 32, 32, 32, 32, 32, 32, 13, 13, 13, 26, 10, 26, 24, 16, 4, 33, 25, 19, 10, 24, 11, 13, 15, 34, 9, 6, 22, 35, 24, 24, 24, 9, 10, 16, 13, 11, 36, 12, 37, 26, 26, 12, 16, 24, 10, 13, 15, 24, 24, 29, 24, 36, 24, 
         };*/
 
     static 

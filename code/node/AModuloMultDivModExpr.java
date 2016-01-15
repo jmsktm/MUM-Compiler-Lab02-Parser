@@ -7,7 +7,7 @@ import analysis.*;
 @SuppressWarnings("nls")
 public final class AModuloMultDivModExpr extends PMultDivModExpr
 {
-    private PUnitaryExpr _unitarySrc_;
+    private PMultDivModExpr _multDivModExprSrc_;
     private TModulo _modulo_;
     private PUnitaryExpr _unitaryTarget_;
 
@@ -17,12 +17,12 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
     }
 
     public AModuloMultDivModExpr(
-        @SuppressWarnings("hiding") PUnitaryExpr _unitarySrc_,
+        @SuppressWarnings("hiding") PMultDivModExpr _multDivModExprSrc_,
         @SuppressWarnings("hiding") TModulo _modulo_,
         @SuppressWarnings("hiding") PUnitaryExpr _unitaryTarget_)
     {
         // Constructor
-        setUnitarySrc(_unitarySrc_);
+        setMultDivModExprSrc(_multDivModExprSrc_);
 
         setModulo(_modulo_);
 
@@ -34,7 +34,7 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
     public Object clone()
     {
         return new AModuloMultDivModExpr(
-            cloneNode(this._unitarySrc_),
+            cloneNode(this._multDivModExprSrc_),
             cloneNode(this._modulo_),
             cloneNode(this._unitaryTarget_));
     }
@@ -45,16 +45,16 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
         ((Analysis) sw).caseAModuloMultDivModExpr(this);
     }
 
-    public PUnitaryExpr getUnitarySrc()
+    public PMultDivModExpr getMultDivModExprSrc()
     {
-        return this._unitarySrc_;
+        return this._multDivModExprSrc_;
     }
 
-    public void setUnitarySrc(PUnitaryExpr node)
+    public void setMultDivModExprSrc(PMultDivModExpr node)
     {
-        if(this._unitarySrc_ != null)
+        if(this._multDivModExprSrc_ != null)
         {
-            this._unitarySrc_.parent(null);
+            this._multDivModExprSrc_.parent(null);
         }
 
         if(node != null)
@@ -67,7 +67,7 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
             node.parent(this);
         }
 
-        this._unitarySrc_ = node;
+        this._multDivModExprSrc_ = node;
     }
 
     public TModulo getModulo()
@@ -124,7 +124,7 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
     public String toString()
     {
         return ""
-            + toString(this._unitarySrc_)
+            + toString(this._multDivModExprSrc_)
             + toString(this._modulo_)
             + toString(this._unitaryTarget_);
     }
@@ -133,9 +133,9 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._unitarySrc_ == child)
+        if(this._multDivModExprSrc_ == child)
         {
-            this._unitarySrc_ = null;
+            this._multDivModExprSrc_ = null;
             return;
         }
 
@@ -158,9 +158,9 @@ public final class AModuloMultDivModExpr extends PMultDivModExpr
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._unitarySrc_ == oldChild)
+        if(this._multDivModExprSrc_ == oldChild)
         {
-            setUnitarySrc((PUnitaryExpr) newChild);
+            setMultDivModExprSrc((PMultDivModExpr) newChild);
             return;
         }
 

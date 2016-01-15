@@ -7,7 +7,7 @@ import analysis.*;
 @SuppressWarnings("nls")
 public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
 {
-    private PMultDivModExpr _multDivModSrc_;
+    private PPlusMinusExpr _plusMinusExprSrc_;
     private TMinus _minus_;
     private PMultDivModExpr _multDivModTarget_;
 
@@ -17,12 +17,12 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
     }
 
     public ASubtractionPlusMinusExpr(
-        @SuppressWarnings("hiding") PMultDivModExpr _multDivModSrc_,
+        @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusExprSrc_,
         @SuppressWarnings("hiding") TMinus _minus_,
         @SuppressWarnings("hiding") PMultDivModExpr _multDivModTarget_)
     {
         // Constructor
-        setMultDivModSrc(_multDivModSrc_);
+        setPlusMinusExprSrc(_plusMinusExprSrc_);
 
         setMinus(_minus_);
 
@@ -34,7 +34,7 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
     public Object clone()
     {
         return new ASubtractionPlusMinusExpr(
-            cloneNode(this._multDivModSrc_),
+            cloneNode(this._plusMinusExprSrc_),
             cloneNode(this._minus_),
             cloneNode(this._multDivModTarget_));
     }
@@ -45,16 +45,16 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
         ((Analysis) sw).caseASubtractionPlusMinusExpr(this);
     }
 
-    public PMultDivModExpr getMultDivModSrc()
+    public PPlusMinusExpr getPlusMinusExprSrc()
     {
-        return this._multDivModSrc_;
+        return this._plusMinusExprSrc_;
     }
 
-    public void setMultDivModSrc(PMultDivModExpr node)
+    public void setPlusMinusExprSrc(PPlusMinusExpr node)
     {
-        if(this._multDivModSrc_ != null)
+        if(this._plusMinusExprSrc_ != null)
         {
-            this._multDivModSrc_.parent(null);
+            this._plusMinusExprSrc_.parent(null);
         }
 
         if(node != null)
@@ -67,7 +67,7 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
             node.parent(this);
         }
 
-        this._multDivModSrc_ = node;
+        this._plusMinusExprSrc_ = node;
     }
 
     public TMinus getMinus()
@@ -124,7 +124,7 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
     public String toString()
     {
         return ""
-            + toString(this._multDivModSrc_)
+            + toString(this._plusMinusExprSrc_)
             + toString(this._minus_)
             + toString(this._multDivModTarget_);
     }
@@ -133,9 +133,9 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._multDivModSrc_ == child)
+        if(this._plusMinusExprSrc_ == child)
         {
-            this._multDivModSrc_ = null;
+            this._plusMinusExprSrc_ = null;
             return;
         }
 
@@ -158,9 +158,9 @@ public final class ASubtractionPlusMinusExpr extends PPlusMinusExpr
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._multDivModSrc_ == oldChild)
+        if(this._plusMinusExprSrc_ == oldChild)
         {
-            setMultDivModSrc((PMultDivModExpr) newChild);
+            setPlusMinusExprSrc((PPlusMinusExpr) newChild);
             return;
         }
 

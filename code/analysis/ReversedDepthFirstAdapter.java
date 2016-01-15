@@ -1901,9 +1901,9 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getPlus().apply(this);
         }
-        if(node.getMultDivModSrc() != null)
+        if(node.getPlusMinusExprSrc() != null)
         {
-            node.getMultDivModSrc().apply(this);
+            node.getPlusMinusExprSrc().apply(this);
         }
         outAAdditionPlusMinusExpr(node);
     }
@@ -1930,9 +1930,9 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getMinus().apply(this);
         }
-        if(node.getMultDivModSrc() != null)
+        if(node.getPlusMinusExprSrc() != null)
         {
-            node.getMultDivModSrc().apply(this);
+            node.getPlusMinusExprSrc().apply(this);
         }
         outASubtractionPlusMinusExpr(node);
     }
@@ -1980,9 +1980,9 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getMult().apply(this);
         }
-        if(node.getUnitarySrc() != null)
+        if(node.getMultDivModExprSrc() != null)
         {
-            node.getUnitarySrc().apply(this);
+            node.getMultDivModExprSrc().apply(this);
         }
         outAMultiplicationMultDivModExpr(node);
     }
@@ -2009,9 +2009,9 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getDiv().apply(this);
         }
-        if(node.getUnitarySrc() != null)
+        if(node.getMultDivModExprSrc() != null)
         {
-            node.getUnitarySrc().apply(this);
+            node.getMultDivModExprSrc().apply(this);
         }
         outADivisionMultDivModExpr(node);
     }
@@ -2038,9 +2038,9 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getModulo().apply(this);
         }
-        if(node.getUnitarySrc() != null)
+        if(node.getMultDivModExprSrc() != null)
         {
-            node.getUnitarySrc().apply(this);
+            node.getMultDivModExprSrc().apply(this);
         }
         outAModuloMultDivModExpr(node);
     }

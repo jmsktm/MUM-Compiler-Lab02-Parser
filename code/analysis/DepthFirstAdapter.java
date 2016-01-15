@@ -1893,9 +1893,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAAdditionPlusMinusExpr(AAdditionPlusMinusExpr node)
     {
         inAAdditionPlusMinusExpr(node);
-        if(node.getMultDivModSrc() != null)
+        if(node.getPlusMinusExprSrc() != null)
         {
-            node.getMultDivModSrc().apply(this);
+            node.getPlusMinusExprSrc().apply(this);
         }
         if(node.getPlus() != null)
         {
@@ -1922,9 +1922,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseASubtractionPlusMinusExpr(ASubtractionPlusMinusExpr node)
     {
         inASubtractionPlusMinusExpr(node);
-        if(node.getMultDivModSrc() != null)
+        if(node.getPlusMinusExprSrc() != null)
         {
-            node.getMultDivModSrc().apply(this);
+            node.getPlusMinusExprSrc().apply(this);
         }
         if(node.getMinus() != null)
         {
@@ -1972,9 +1972,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAMultiplicationMultDivModExpr(AMultiplicationMultDivModExpr node)
     {
         inAMultiplicationMultDivModExpr(node);
-        if(node.getUnitarySrc() != null)
+        if(node.getMultDivModExprSrc() != null)
         {
-            node.getUnitarySrc().apply(this);
+            node.getMultDivModExprSrc().apply(this);
         }
         if(node.getMult() != null)
         {
@@ -2001,9 +2001,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseADivisionMultDivModExpr(ADivisionMultDivModExpr node)
     {
         inADivisionMultDivModExpr(node);
-        if(node.getUnitarySrc() != null)
+        if(node.getMultDivModExprSrc() != null)
         {
-            node.getUnitarySrc().apply(this);
+            node.getMultDivModExprSrc().apply(this);
         }
         if(node.getDiv() != null)
         {
@@ -2030,9 +2030,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAModuloMultDivModExpr(AModuloMultDivModExpr node)
     {
         inAModuloMultDivModExpr(node);
-        if(node.getUnitarySrc() != null)
+        if(node.getMultDivModExprSrc() != null)
         {
-            node.getUnitarySrc().apply(this);
+            node.getMultDivModExprSrc().apply(this);
         }
         if(node.getModulo() != null)
         {

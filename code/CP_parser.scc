@@ -234,14 +234,14 @@ Productions
         | {plus_minus_expr} plus_minus_expr;
 
     plus_minus_expr = 
-        {addition} [mult_div_mod_src]:mult_div_mod_expr plus [mult_div_mod_target]:mult_div_mod_expr
-        | {subtraction} [mult_div_mod_src]:mult_div_mod_expr minus [mult_div_mod_target]:mult_div_mod_expr
+        {addition} [plus_minus_expr_src]:plus_minus_expr plus [mult_div_mod_target]:mult_div_mod_expr
+        | {subtraction} [plus_minus_expr_src]:plus_minus_expr minus [mult_div_mod_target]:mult_div_mod_expr
         | {mult_div_mod_expr} mult_div_mod_expr;
 
     mult_div_mod_expr =
-        {multiplication} [unitary_src]:unitary_expr mult [unitary_target]:unitary_expr
-        | {division} [unitary_src]:unitary_expr div [unitary_target]:unitary_expr
-        | {modulo} [unitary_src]:unitary_expr modulo [unitary_target]:unitary_expr
+        {multiplication} [mult_div_mod_expr_src]:mult_div_mod_expr mult [unitary_target]:unitary_expr
+        | {division} [mult_div_mod_expr_src]:mult_div_mod_expr div [unitary_target]:unitary_expr
+        | {modulo} [mult_div_mod_expr_src]:mult_div_mod_expr modulo [unitary_target]:unitary_expr
         | {unitary_expr} unitary_expr;
 
     unitary_expr = 
