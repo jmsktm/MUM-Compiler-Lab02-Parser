@@ -7,7 +7,7 @@ import analysis.*;
 @SuppressWarnings("nls")
 public final class AMethodCallNoArgMethodCall extends PMethodCall
 {
-    private TIdentifier _identifier_;
+    private PFieldAccess _fieldAccess_;
     private TLPar _lPar_;
     private TRPar _rPar_;
 
@@ -17,12 +17,12 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
     }
 
     public AMethodCallNoArgMethodCall(
-        @SuppressWarnings("hiding") TIdentifier _identifier_,
+        @SuppressWarnings("hiding") PFieldAccess _fieldAccess_,
         @SuppressWarnings("hiding") TLPar _lPar_,
         @SuppressWarnings("hiding") TRPar _rPar_)
     {
         // Constructor
-        setIdentifier(_identifier_);
+        setFieldAccess(_fieldAccess_);
 
         setLPar(_lPar_);
 
@@ -34,7 +34,7 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
     public Object clone()
     {
         return new AMethodCallNoArgMethodCall(
-            cloneNode(this._identifier_),
+            cloneNode(this._fieldAccess_),
             cloneNode(this._lPar_),
             cloneNode(this._rPar_));
     }
@@ -45,16 +45,16 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
         ((Analysis) sw).caseAMethodCallNoArgMethodCall(this);
     }
 
-    public TIdentifier getIdentifier()
+    public PFieldAccess getFieldAccess()
     {
-        return this._identifier_;
+        return this._fieldAccess_;
     }
 
-    public void setIdentifier(TIdentifier node)
+    public void setFieldAccess(PFieldAccess node)
     {
-        if(this._identifier_ != null)
+        if(this._fieldAccess_ != null)
         {
-            this._identifier_.parent(null);
+            this._fieldAccess_.parent(null);
         }
 
         if(node != null)
@@ -67,7 +67,7 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
             node.parent(this);
         }
 
-        this._identifier_ = node;
+        this._fieldAccess_ = node;
     }
 
     public TLPar getLPar()
@@ -124,7 +124,7 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
     public String toString()
     {
         return ""
-            + toString(this._identifier_)
+            + toString(this._fieldAccess_)
             + toString(this._lPar_)
             + toString(this._rPar_);
     }
@@ -133,9 +133,9 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._identifier_ == child)
+        if(this._fieldAccess_ == child)
         {
-            this._identifier_ = null;
+            this._fieldAccess_ = null;
             return;
         }
 
@@ -158,9 +158,9 @@ public final class AMethodCallNoArgMethodCall extends PMethodCall
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._identifier_ == oldChild)
+        if(this._fieldAccess_ == oldChild)
         {
-            setIdentifier((TIdentifier) newChild);
+            setFieldAccess((PFieldAccess) newChild);
             return;
         }
 

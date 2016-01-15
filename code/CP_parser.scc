@@ -202,14 +202,14 @@ Productions
     
     field_access =
         {identifier_field_access} identifier
+        | {identifier_array_access} identifier l_bkt integer_literal r_bkt
+        | {identifier_empty_array_access} identifier l_bkt r_bkt
         | {array_field_access} identifier l_bkt field_access r_bkt
         | {field_extension} identifier dot field_access;
     
     method_call =
-        {method_call_no_arg} identifier l_par r_par
-        | {method_call_with_arg} identifier l_par args r_par
-        | {method_call_with_dot_oper_no_arg} [main_identifier]:identifier dot [sub_identifier]:identifier l_par r_par
-        | {method_call_with_dot_oper_and_arg} [main_identifier]:identifier dot [sub_identifier]:identifier l_par args r_par;
+        {method_call_no_arg} field_access l_par r_par
+        | {method_call_with_arg} field_access l_par args r_par;
     
     args =
         {mult_arg} args comma expr

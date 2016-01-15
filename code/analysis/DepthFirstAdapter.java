@@ -1291,6 +1291,68 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outAIdentifierFieldAccessFieldAccess(node);
     }
 
+    public void inAIdentifierArrayAccessFieldAccess(AIdentifierArrayAccessFieldAccess node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAIdentifierArrayAccessFieldAccess(AIdentifierArrayAccessFieldAccess node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAIdentifierArrayAccessFieldAccess(AIdentifierArrayAccessFieldAccess node)
+    {
+        inAIdentifierArrayAccessFieldAccess(node);
+        if(node.getIdentifier() != null)
+        {
+            node.getIdentifier().apply(this);
+        }
+        if(node.getLBkt() != null)
+        {
+            node.getLBkt().apply(this);
+        }
+        if(node.getIntegerLiteral() != null)
+        {
+            node.getIntegerLiteral().apply(this);
+        }
+        if(node.getRBkt() != null)
+        {
+            node.getRBkt().apply(this);
+        }
+        outAIdentifierArrayAccessFieldAccess(node);
+    }
+
+    public void inAIdentifierEmptyArrayAccessFieldAccess(AIdentifierEmptyArrayAccessFieldAccess node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAIdentifierEmptyArrayAccessFieldAccess(AIdentifierEmptyArrayAccessFieldAccess node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAIdentifierEmptyArrayAccessFieldAccess(AIdentifierEmptyArrayAccessFieldAccess node)
+    {
+        inAIdentifierEmptyArrayAccessFieldAccess(node);
+        if(node.getIdentifier() != null)
+        {
+            node.getIdentifier().apply(this);
+        }
+        if(node.getLBkt() != null)
+        {
+            node.getLBkt().apply(this);
+        }
+        if(node.getRBkt() != null)
+        {
+            node.getRBkt().apply(this);
+        }
+        outAIdentifierEmptyArrayAccessFieldAccess(node);
+    }
+
     public void inAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node)
     {
         defaultIn(node);
@@ -1367,9 +1429,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAMethodCallNoArgMethodCall(AMethodCallNoArgMethodCall node)
     {
         inAMethodCallNoArgMethodCall(node);
-        if(node.getIdentifier() != null)
+        if(node.getFieldAccess() != null)
         {
-            node.getIdentifier().apply(this);
+            node.getFieldAccess().apply(this);
         }
         if(node.getLPar() != null)
         {
@@ -1396,9 +1458,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAMethodCallWithArgMethodCall(AMethodCallWithArgMethodCall node)
     {
         inAMethodCallWithArgMethodCall(node);
-        if(node.getIdentifier() != null)
+        if(node.getFieldAccess() != null)
         {
-            node.getIdentifier().apply(this);
+            node.getFieldAccess().apply(this);
         }
         if(node.getLPar() != null)
         {
@@ -1413,84 +1475,6 @@ public class DepthFirstAdapter extends AnalysisAdapter
             node.getRPar().apply(this);
         }
         outAMethodCallWithArgMethodCall(node);
-    }
-
-    public void inAMethodCallWithDotOperNoArgMethodCall(AMethodCallWithDotOperNoArgMethodCall node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAMethodCallWithDotOperNoArgMethodCall(AMethodCallWithDotOperNoArgMethodCall node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAMethodCallWithDotOperNoArgMethodCall(AMethodCallWithDotOperNoArgMethodCall node)
-    {
-        inAMethodCallWithDotOperNoArgMethodCall(node);
-        if(node.getMainIdentifier() != null)
-        {
-            node.getMainIdentifier().apply(this);
-        }
-        if(node.getDot() != null)
-        {
-            node.getDot().apply(this);
-        }
-        if(node.getSubIdentifier() != null)
-        {
-            node.getSubIdentifier().apply(this);
-        }
-        if(node.getLPar() != null)
-        {
-            node.getLPar().apply(this);
-        }
-        if(node.getRPar() != null)
-        {
-            node.getRPar().apply(this);
-        }
-        outAMethodCallWithDotOperNoArgMethodCall(node);
-    }
-
-    public void inAMethodCallWithDotOperAndArgMethodCall(AMethodCallWithDotOperAndArgMethodCall node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAMethodCallWithDotOperAndArgMethodCall(AMethodCallWithDotOperAndArgMethodCall node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAMethodCallWithDotOperAndArgMethodCall(AMethodCallWithDotOperAndArgMethodCall node)
-    {
-        inAMethodCallWithDotOperAndArgMethodCall(node);
-        if(node.getMainIdentifier() != null)
-        {
-            node.getMainIdentifier().apply(this);
-        }
-        if(node.getDot() != null)
-        {
-            node.getDot().apply(this);
-        }
-        if(node.getSubIdentifier() != null)
-        {
-            node.getSubIdentifier().apply(this);
-        }
-        if(node.getLPar() != null)
-        {
-            node.getLPar().apply(this);
-        }
-        if(node.getArgs() != null)
-        {
-            node.getArgs().apply(this);
-        }
-        if(node.getRPar() != null)
-        {
-            node.getRPar().apply(this);
-        }
-        outAMethodCallWithDotOperAndArgMethodCall(node);
     }
 
     public void inAMultArgArgs(AMultArgArgs node)

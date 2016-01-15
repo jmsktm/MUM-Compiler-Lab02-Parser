@@ -357,6 +357,18 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseAIdentifierArrayAccessFieldAccess(AIdentifierArrayAccessFieldAccess node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIdentifierEmptyArrayAccessFieldAccess(AIdentifierEmptyArrayAccessFieldAccess node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseAArrayFieldAccessFieldAccess(AArrayFieldAccessFieldAccess node)
     {
         defaultCase(node);
@@ -376,18 +388,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseAMethodCallWithArgMethodCall(AMethodCallWithArgMethodCall node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMethodCallWithDotOperNoArgMethodCall(AMethodCallWithDotOperNoArgMethodCall node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMethodCallWithDotOperAndArgMethodCall(AMethodCallWithDotOperAndArgMethodCall node)
     {
         defaultCase(node);
     }
