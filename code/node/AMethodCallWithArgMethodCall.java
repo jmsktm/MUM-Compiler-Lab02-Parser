@@ -9,7 +9,7 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
 {
     private TIdentifier _identifier_;
     private TLPar _lPar_;
-    private TIntegerLiteral _integerLiteral_;
+    private PArgs _args_;
     private TRPar _rPar_;
 
     public AMethodCallWithArgMethodCall()
@@ -20,7 +20,7 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
     public AMethodCallWithArgMethodCall(
         @SuppressWarnings("hiding") TIdentifier _identifier_,
         @SuppressWarnings("hiding") TLPar _lPar_,
-        @SuppressWarnings("hiding") TIntegerLiteral _integerLiteral_,
+        @SuppressWarnings("hiding") PArgs _args_,
         @SuppressWarnings("hiding") TRPar _rPar_)
     {
         // Constructor
@@ -28,7 +28,7 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
 
         setLPar(_lPar_);
 
-        setIntegerLiteral(_integerLiteral_);
+        setArgs(_args_);
 
         setRPar(_rPar_);
 
@@ -40,7 +40,7 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
         return new AMethodCallWithArgMethodCall(
             cloneNode(this._identifier_),
             cloneNode(this._lPar_),
-            cloneNode(this._integerLiteral_),
+            cloneNode(this._args_),
             cloneNode(this._rPar_));
     }
 
@@ -100,16 +100,16 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
         this._lPar_ = node;
     }
 
-    public TIntegerLiteral getIntegerLiteral()
+    public PArgs getArgs()
     {
-        return this._integerLiteral_;
+        return this._args_;
     }
 
-    public void setIntegerLiteral(TIntegerLiteral node)
+    public void setArgs(PArgs node)
     {
-        if(this._integerLiteral_ != null)
+        if(this._args_ != null)
         {
-            this._integerLiteral_.parent(null);
+            this._args_.parent(null);
         }
 
         if(node != null)
@@ -122,7 +122,7 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
             node.parent(this);
         }
 
-        this._integerLiteral_ = node;
+        this._args_ = node;
     }
 
     public TRPar getRPar()
@@ -156,7 +156,7 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
         return ""
             + toString(this._identifier_)
             + toString(this._lPar_)
-            + toString(this._integerLiteral_)
+            + toString(this._args_)
             + toString(this._rPar_);
     }
 
@@ -176,9 +176,9 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
             return;
         }
 
-        if(this._integerLiteral_ == child)
+        if(this._args_ == child)
         {
-            this._integerLiteral_ = null;
+            this._args_ = null;
             return;
         }
 
@@ -207,9 +207,9 @@ public final class AMethodCallWithArgMethodCall extends PMethodCall
             return;
         }
 
-        if(this._integerLiteral_ == oldChild)
+        if(this._args_ == oldChild)
         {
-            setIntegerLiteral((TIntegerLiteral) newChild);
+            setArgs((PArgs) newChild);
             return;
         }
 

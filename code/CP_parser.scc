@@ -211,7 +211,7 @@ Productions
     
     method_call =
         {method_call_no_arg} identifier l_par r_par
-        | {method_call_with_arg} identifier l_par integer_literal r_par
+        | {method_call_with_arg} identifier l_par args r_par
         | {method_call_with_dot_oper_no_arg} [main_identifier]:identifier dot [sub_identifier]:identifier l_par r_par
         | {method_call_with_dot_oper_and_arg} [main_identifier]:identifier dot [sub_identifier]:identifier l_par args r_par;
     
