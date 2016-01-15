@@ -216,17 +216,23 @@ Productions
         | {single_arg} expr;
     
     expr =
-        {expr_and_logical_expr} expr or logical_expr
-        | {expr_or_logical_expr} expr and logical_expr
-        | {logical_expr} logical_expr;
+        {or_operation} expr or and_operation
+        | {missing_or} and_operation;
 
-    logical_expr =
+    and_operation =
+        {and_operation} and_operation and equality_operation
+        | {greater_less_equal_operation} equality_operation;
+
+    equality_operation =
+        {equals_comparison} equality_operation equals greater_less_equal_operation
+        | {not_equals_comparison} equality_operation not_equals greater_less_equal_operation
+        | {no_equality_operation} greater_less_equal_operation;
+
+    greater_less_equal_operation =
         {less_than} [plus_minus_src]:plus_minus_expr less_than [plus_minus_target]:plus_minus_expr
         | {greater_than} [plus_minus_src]:plus_minus_expr greater_than [plus_minus_target]:plus_minus_expr
         | {less_than_or_eq} [plus_minus_src]:plus_minus_expr less_than_or_eq [plus_minus_target]:plus_minus_expr
         | {greater_than_or_eq} [plus_minus_src]:plus_minus_expr greater_than_or_eq [plus_minus_target]:plus_minus_expr
-        | {equals} [plus_minus_src]:plus_minus_expr equals [plus_minus_target]:plus_minus_expr
-        | {not_equals} [plus_minus_src]:plus_minus_expr not_equals [plus_minus_target]:plus_minus_expr
         | {plus_minus_expr} plus_minus_expr;
 
     plus_minus_expr = 

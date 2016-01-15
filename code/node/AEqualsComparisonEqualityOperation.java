@@ -5,56 +5,56 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AEqualsLogicalExpr extends PLogicalExpr
+public final class AEqualsComparisonEqualityOperation extends PEqualityOperation
 {
-    private PPlusMinusExpr _plusMinusSrc_;
+    private PEqualityOperation _equalityOperation_;
     private TEquals _equals_;
-    private PPlusMinusExpr _plusMinusTarget_;
+    private PGreaterLessEqualOperation _greaterLessEqualOperation_;
 
-    public AEqualsLogicalExpr()
+    public AEqualsComparisonEqualityOperation()
     {
         // Constructor
     }
 
-    public AEqualsLogicalExpr(
-        @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusSrc_,
+    public AEqualsComparisonEqualityOperation(
+        @SuppressWarnings("hiding") PEqualityOperation _equalityOperation_,
         @SuppressWarnings("hiding") TEquals _equals_,
-        @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusTarget_)
+        @SuppressWarnings("hiding") PGreaterLessEqualOperation _greaterLessEqualOperation_)
     {
         // Constructor
-        setPlusMinusSrc(_plusMinusSrc_);
+        setEqualityOperation(_equalityOperation_);
 
         setEquals(_equals_);
 
-        setPlusMinusTarget(_plusMinusTarget_);
+        setGreaterLessEqualOperation(_greaterLessEqualOperation_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AEqualsLogicalExpr(
-            cloneNode(this._plusMinusSrc_),
+        return new AEqualsComparisonEqualityOperation(
+            cloneNode(this._equalityOperation_),
             cloneNode(this._equals_),
-            cloneNode(this._plusMinusTarget_));
+            cloneNode(this._greaterLessEqualOperation_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAEqualsLogicalExpr(this);
+        ((Analysis) sw).caseAEqualsComparisonEqualityOperation(this);
     }
 
-    public PPlusMinusExpr getPlusMinusSrc()
+    public PEqualityOperation getEqualityOperation()
     {
-        return this._plusMinusSrc_;
+        return this._equalityOperation_;
     }
 
-    public void setPlusMinusSrc(PPlusMinusExpr node)
+    public void setEqualityOperation(PEqualityOperation node)
     {
-        if(this._plusMinusSrc_ != null)
+        if(this._equalityOperation_ != null)
         {
-            this._plusMinusSrc_.parent(null);
+            this._equalityOperation_.parent(null);
         }
 
         if(node != null)
@@ -67,7 +67,7 @@ public final class AEqualsLogicalExpr extends PLogicalExpr
             node.parent(this);
         }
 
-        this._plusMinusSrc_ = node;
+        this._equalityOperation_ = node;
     }
 
     public TEquals getEquals()
@@ -95,16 +95,16 @@ public final class AEqualsLogicalExpr extends PLogicalExpr
         this._equals_ = node;
     }
 
-    public PPlusMinusExpr getPlusMinusTarget()
+    public PGreaterLessEqualOperation getGreaterLessEqualOperation()
     {
-        return this._plusMinusTarget_;
+        return this._greaterLessEqualOperation_;
     }
 
-    public void setPlusMinusTarget(PPlusMinusExpr node)
+    public void setGreaterLessEqualOperation(PGreaterLessEqualOperation node)
     {
-        if(this._plusMinusTarget_ != null)
+        if(this._greaterLessEqualOperation_ != null)
         {
-            this._plusMinusTarget_.parent(null);
+            this._greaterLessEqualOperation_.parent(null);
         }
 
         if(node != null)
@@ -117,25 +117,25 @@ public final class AEqualsLogicalExpr extends PLogicalExpr
             node.parent(this);
         }
 
-        this._plusMinusTarget_ = node;
+        this._greaterLessEqualOperation_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._plusMinusSrc_)
+            + toString(this._equalityOperation_)
             + toString(this._equals_)
-            + toString(this._plusMinusTarget_);
+            + toString(this._greaterLessEqualOperation_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._plusMinusSrc_ == child)
+        if(this._equalityOperation_ == child)
         {
-            this._plusMinusSrc_ = null;
+            this._equalityOperation_ = null;
             return;
         }
 
@@ -145,9 +145,9 @@ public final class AEqualsLogicalExpr extends PLogicalExpr
             return;
         }
 
-        if(this._plusMinusTarget_ == child)
+        if(this._greaterLessEqualOperation_ == child)
         {
-            this._plusMinusTarget_ = null;
+            this._greaterLessEqualOperation_ = null;
             return;
         }
 
@@ -158,9 +158,9 @@ public final class AEqualsLogicalExpr extends PLogicalExpr
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._plusMinusSrc_ == oldChild)
+        if(this._equalityOperation_ == oldChild)
         {
-            setPlusMinusSrc((PPlusMinusExpr) newChild);
+            setEqualityOperation((PEqualityOperation) newChild);
             return;
         }
 
@@ -170,9 +170,9 @@ public final class AEqualsLogicalExpr extends PLogicalExpr
             return;
         }
 
-        if(this._plusMinusTarget_ == oldChild)
+        if(this._greaterLessEqualOperation_ == oldChild)
         {
-            setPlusMinusTarget((PPlusMinusExpr) newChild);
+            setGreaterLessEqualOperation((PGreaterLessEqualOperation) newChild);
             return;
         }
 

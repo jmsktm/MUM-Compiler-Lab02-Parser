@@ -5,18 +5,18 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ALessThanLogicalExpr extends PLogicalExpr
+public final class ALessThanGreaterLessEqualOperation extends PGreaterLessEqualOperation
 {
     private PPlusMinusExpr _plusMinusSrc_;
     private TLessThan _lessThan_;
     private PPlusMinusExpr _plusMinusTarget_;
 
-    public ALessThanLogicalExpr()
+    public ALessThanGreaterLessEqualOperation()
     {
         // Constructor
     }
 
-    public ALessThanLogicalExpr(
+    public ALessThanGreaterLessEqualOperation(
         @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusSrc_,
         @SuppressWarnings("hiding") TLessThan _lessThan_,
         @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusTarget_)
@@ -33,7 +33,7 @@ public final class ALessThanLogicalExpr extends PLogicalExpr
     @Override
     public Object clone()
     {
-        return new ALessThanLogicalExpr(
+        return new ALessThanGreaterLessEqualOperation(
             cloneNode(this._plusMinusSrc_),
             cloneNode(this._lessThan_),
             cloneNode(this._plusMinusTarget_));
@@ -42,7 +42,7 @@ public final class ALessThanLogicalExpr extends PLogicalExpr
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseALessThanLogicalExpr(this);
+        ((Analysis) sw).caseALessThanGreaterLessEqualOperation(this);
     }
 
     public PPlusMinusExpr getPlusMinusSrc()

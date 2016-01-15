@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class APlusMinusExprLogicalExpr extends PLogicalExpr
+public final class AMissingOrExpr extends PExpr
 {
-    private PPlusMinusExpr _plusMinusExpr_;
+    private PAndOperation _andOperation_;
 
-    public APlusMinusExprLogicalExpr()
+    public AMissingOrExpr()
     {
         // Constructor
     }
 
-    public APlusMinusExprLogicalExpr(
-        @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusExpr_)
+    public AMissingOrExpr(
+        @SuppressWarnings("hiding") PAndOperation _andOperation_)
     {
         // Constructor
-        setPlusMinusExpr(_plusMinusExpr_);
+        setAndOperation(_andOperation_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new APlusMinusExprLogicalExpr(
-            cloneNode(this._plusMinusExpr_));
+        return new AMissingOrExpr(
+            cloneNode(this._andOperation_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAPlusMinusExprLogicalExpr(this);
+        ((Analysis) sw).caseAMissingOrExpr(this);
     }
 
-    public PPlusMinusExpr getPlusMinusExpr()
+    public PAndOperation getAndOperation()
     {
-        return this._plusMinusExpr_;
+        return this._andOperation_;
     }
 
-    public void setPlusMinusExpr(PPlusMinusExpr node)
+    public void setAndOperation(PAndOperation node)
     {
-        if(this._plusMinusExpr_ != null)
+        if(this._andOperation_ != null)
         {
-            this._plusMinusExpr_.parent(null);
+            this._andOperation_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class APlusMinusExprLogicalExpr extends PLogicalExpr
             node.parent(this);
         }
 
-        this._plusMinusExpr_ = node;
+        this._andOperation_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._plusMinusExpr_);
+            + toString(this._andOperation_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._plusMinusExpr_ == child)
+        if(this._andOperation_ == child)
         {
-            this._plusMinusExpr_ = null;
+            this._andOperation_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class APlusMinusExprLogicalExpr extends PLogicalExpr
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._plusMinusExpr_ == oldChild)
+        if(this._andOperation_ == oldChild)
         {
-            setPlusMinusExpr((PPlusMinusExpr) newChild);
+            setAndOperation((PAndOperation) newChild);
             return;
         }
 

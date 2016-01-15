@@ -2,7 +2,7 @@
 
 package node;
 
-public abstract class PLogicalExpr extends Node
+public abstract class PEqualityOperation extends Node
 {
     // Empty body
 }

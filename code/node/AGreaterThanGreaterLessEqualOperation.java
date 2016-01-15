@@ -5,26 +5,26 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
+public final class AGreaterThanGreaterLessEqualOperation extends PGreaterLessEqualOperation
 {
     private PPlusMinusExpr _plusMinusSrc_;
-    private TLessThanOrEq _lessThanOrEq_;
+    private TGreaterThan _greaterThan_;
     private PPlusMinusExpr _plusMinusTarget_;
 
-    public ALessThanOrEqLogicalExpr()
+    public AGreaterThanGreaterLessEqualOperation()
     {
         // Constructor
     }
 
-    public ALessThanOrEqLogicalExpr(
+    public AGreaterThanGreaterLessEqualOperation(
         @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusSrc_,
-        @SuppressWarnings("hiding") TLessThanOrEq _lessThanOrEq_,
+        @SuppressWarnings("hiding") TGreaterThan _greaterThan_,
         @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusTarget_)
     {
         // Constructor
         setPlusMinusSrc(_plusMinusSrc_);
 
-        setLessThanOrEq(_lessThanOrEq_);
+        setGreaterThan(_greaterThan_);
 
         setPlusMinusTarget(_plusMinusTarget_);
 
@@ -33,16 +33,16 @@ public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
     @Override
     public Object clone()
     {
-        return new ALessThanOrEqLogicalExpr(
+        return new AGreaterThanGreaterLessEqualOperation(
             cloneNode(this._plusMinusSrc_),
-            cloneNode(this._lessThanOrEq_),
+            cloneNode(this._greaterThan_),
             cloneNode(this._plusMinusTarget_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseALessThanOrEqLogicalExpr(this);
+        ((Analysis) sw).caseAGreaterThanGreaterLessEqualOperation(this);
     }
 
     public PPlusMinusExpr getPlusMinusSrc()
@@ -70,16 +70,16 @@ public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
         this._plusMinusSrc_ = node;
     }
 
-    public TLessThanOrEq getLessThanOrEq()
+    public TGreaterThan getGreaterThan()
     {
-        return this._lessThanOrEq_;
+        return this._greaterThan_;
     }
 
-    public void setLessThanOrEq(TLessThanOrEq node)
+    public void setGreaterThan(TGreaterThan node)
     {
-        if(this._lessThanOrEq_ != null)
+        if(this._greaterThan_ != null)
         {
-            this._lessThanOrEq_.parent(null);
+            this._greaterThan_.parent(null);
         }
 
         if(node != null)
@@ -92,7 +92,7 @@ public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
             node.parent(this);
         }
 
-        this._lessThanOrEq_ = node;
+        this._greaterThan_ = node;
     }
 
     public PPlusMinusExpr getPlusMinusTarget()
@@ -125,7 +125,7 @@ public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
     {
         return ""
             + toString(this._plusMinusSrc_)
-            + toString(this._lessThanOrEq_)
+            + toString(this._greaterThan_)
             + toString(this._plusMinusTarget_);
     }
 
@@ -139,9 +139,9 @@ public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
             return;
         }
 
-        if(this._lessThanOrEq_ == child)
+        if(this._greaterThan_ == child)
         {
-            this._lessThanOrEq_ = null;
+            this._greaterThan_ = null;
             return;
         }
 
@@ -164,9 +164,9 @@ public final class ALessThanOrEqLogicalExpr extends PLogicalExpr
             return;
         }
 
-        if(this._lessThanOrEq_ == oldChild)
+        if(this._greaterThan_ == oldChild)
         {
-            setLessThanOrEq((TLessThanOrEq) newChild);
+            setGreaterThan((TGreaterThan) newChild);
             return;
         }
 

@@ -405,61 +405,73 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAExprAndLogicalExprExpr(AExprAndLogicalExprExpr node)
+    public void caseAOrOperationExpr(AOrOperationExpr node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAExprOrLogicalExprExpr(AExprOrLogicalExprExpr node)
+    public void caseAMissingOrExpr(AMissingOrExpr node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseALogicalExprExpr(ALogicalExprExpr node)
+    public void caseAAndOperationAndOperation(AAndOperationAndOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseALessThanLogicalExpr(ALessThanLogicalExpr node)
+    public void caseAGreaterLessEqualOperationAndOperation(AGreaterLessEqualOperationAndOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAGreaterThanLogicalExpr(AGreaterThanLogicalExpr node)
+    public void caseAEqualsComparisonEqualityOperation(AEqualsComparisonEqualityOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseALessThanOrEqLogicalExpr(ALessThanOrEqLogicalExpr node)
+    public void caseANotEqualsComparisonEqualityOperation(ANotEqualsComparisonEqualityOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAGreaterThanOrEqLogicalExpr(AGreaterThanOrEqLogicalExpr node)
+    public void caseANoEqualityOperationEqualityOperation(ANoEqualityOperationEqualityOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAEqualsLogicalExpr(AEqualsLogicalExpr node)
+    public void caseALessThanGreaterLessEqualOperation(ALessThanGreaterLessEqualOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseANotEqualsLogicalExpr(ANotEqualsLogicalExpr node)
+    public void caseAGreaterThanGreaterLessEqualOperation(AGreaterThanGreaterLessEqualOperation node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAPlusMinusExprLogicalExpr(APlusMinusExprLogicalExpr node)
+    public void caseALessThanOrEqGreaterLessEqualOperation(ALessThanOrEqGreaterLessEqualOperation node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAGreaterThanOrEqGreaterLessEqualOperation(AGreaterThanOrEqGreaterLessEqualOperation node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPlusMinusExprGreaterLessEqualOperation(APlusMinusExprGreaterLessEqualOperation node)
     {
         defaultCase(node);
     }

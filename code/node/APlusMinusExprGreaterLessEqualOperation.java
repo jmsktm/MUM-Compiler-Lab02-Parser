@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ALogicalExprExpr extends PExpr
+public final class APlusMinusExprGreaterLessEqualOperation extends PGreaterLessEqualOperation
 {
-    private PLogicalExpr _logicalExpr_;
+    private PPlusMinusExpr _plusMinusExpr_;
 
-    public ALogicalExprExpr()
+    public APlusMinusExprGreaterLessEqualOperation()
     {
         // Constructor
     }
 
-    public ALogicalExprExpr(
-        @SuppressWarnings("hiding") PLogicalExpr _logicalExpr_)
+    public APlusMinusExprGreaterLessEqualOperation(
+        @SuppressWarnings("hiding") PPlusMinusExpr _plusMinusExpr_)
     {
         // Constructor
-        setLogicalExpr(_logicalExpr_);
+        setPlusMinusExpr(_plusMinusExpr_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new ALogicalExprExpr(
-            cloneNode(this._logicalExpr_));
+        return new APlusMinusExprGreaterLessEqualOperation(
+            cloneNode(this._plusMinusExpr_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseALogicalExprExpr(this);
+        ((Analysis) sw).caseAPlusMinusExprGreaterLessEqualOperation(this);
     }
 
-    public PLogicalExpr getLogicalExpr()
+    public PPlusMinusExpr getPlusMinusExpr()
     {
-        return this._logicalExpr_;
+        return this._plusMinusExpr_;
     }
 
-    public void setLogicalExpr(PLogicalExpr node)
+    public void setPlusMinusExpr(PPlusMinusExpr node)
     {
-        if(this._logicalExpr_ != null)
+        if(this._plusMinusExpr_ != null)
         {
-            this._logicalExpr_.parent(null);
+            this._plusMinusExpr_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class ALogicalExprExpr extends PExpr
             node.parent(this);
         }
 
-        this._logicalExpr_ = node;
+        this._plusMinusExpr_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._logicalExpr_);
+            + toString(this._plusMinusExpr_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._logicalExpr_ == child)
+        if(this._plusMinusExpr_ == child)
         {
-            this._logicalExpr_ = null;
+            this._plusMinusExpr_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class ALogicalExprExpr extends PExpr
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._logicalExpr_ == oldChild)
+        if(this._plusMinusExpr_ == oldChild)
         {
-            setLogicalExpr((PLogicalExpr) newChild);
+            setPlusMinusExpr((PPlusMinusExpr) newChild);
             return;
         }
 

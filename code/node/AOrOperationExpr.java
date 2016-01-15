@@ -5,44 +5,44 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AExprAndLogicalExprExpr extends PExpr
+public final class AOrOperationExpr extends PExpr
 {
     private PExpr _expr_;
     private TOr _or_;
-    private PLogicalExpr _logicalExpr_;
+    private PAndOperation _andOperation_;
 
-    public AExprAndLogicalExprExpr()
+    public AOrOperationExpr()
     {
         // Constructor
     }
 
-    public AExprAndLogicalExprExpr(
+    public AOrOperationExpr(
         @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") TOr _or_,
-        @SuppressWarnings("hiding") PLogicalExpr _logicalExpr_)
+        @SuppressWarnings("hiding") PAndOperation _andOperation_)
     {
         // Constructor
         setExpr(_expr_);
 
         setOr(_or_);
 
-        setLogicalExpr(_logicalExpr_);
+        setAndOperation(_andOperation_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AExprAndLogicalExprExpr(
+        return new AOrOperationExpr(
             cloneNode(this._expr_),
             cloneNode(this._or_),
-            cloneNode(this._logicalExpr_));
+            cloneNode(this._andOperation_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAExprAndLogicalExprExpr(this);
+        ((Analysis) sw).caseAOrOperationExpr(this);
     }
 
     public PExpr getExpr()
@@ -95,16 +95,16 @@ public final class AExprAndLogicalExprExpr extends PExpr
         this._or_ = node;
     }
 
-    public PLogicalExpr getLogicalExpr()
+    public PAndOperation getAndOperation()
     {
-        return this._logicalExpr_;
+        return this._andOperation_;
     }
 
-    public void setLogicalExpr(PLogicalExpr node)
+    public void setAndOperation(PAndOperation node)
     {
-        if(this._logicalExpr_ != null)
+        if(this._andOperation_ != null)
         {
-            this._logicalExpr_.parent(null);
+            this._andOperation_.parent(null);
         }
 
         if(node != null)
@@ -117,7 +117,7 @@ public final class AExprAndLogicalExprExpr extends PExpr
             node.parent(this);
         }
 
-        this._logicalExpr_ = node;
+        this._andOperation_ = node;
     }
 
     @Override
@@ -126,7 +126,7 @@ public final class AExprAndLogicalExprExpr extends PExpr
         return ""
             + toString(this._expr_)
             + toString(this._or_)
-            + toString(this._logicalExpr_);
+            + toString(this._andOperation_);
     }
 
     @Override
@@ -145,9 +145,9 @@ public final class AExprAndLogicalExprExpr extends PExpr
             return;
         }
 
-        if(this._logicalExpr_ == child)
+        if(this._andOperation_ == child)
         {
-            this._logicalExpr_ = null;
+            this._andOperation_ = null;
             return;
         }
 
@@ -170,9 +170,9 @@ public final class AExprAndLogicalExprExpr extends PExpr
             return;
         }
 
-        if(this._logicalExpr_ == oldChild)
+        if(this._andOperation_ == oldChild)
         {
-            setLogicalExpr((PLogicalExpr) newChild);
+            setAndOperation((PAndOperation) newChild);
             return;
         }
 

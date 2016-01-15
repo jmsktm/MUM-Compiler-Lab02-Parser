@@ -1527,20 +1527,20 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outASingleArgArgs(node);
     }
 
-    public void inAExprAndLogicalExprExpr(AExprAndLogicalExprExpr node)
+    public void inAOrOperationExpr(AOrOperationExpr node)
     {
         defaultIn(node);
     }
 
-    public void outAExprAndLogicalExprExpr(AExprAndLogicalExprExpr node)
+    public void outAOrOperationExpr(AOrOperationExpr node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAExprAndLogicalExprExpr(AExprAndLogicalExprExpr node)
+    public void caseAOrOperationExpr(AOrOperationExpr node)
     {
-        inAExprAndLogicalExprExpr(node);
+        inAOrOperationExpr(node);
         if(node.getExpr() != null)
         {
             node.getExpr().apply(this);
@@ -1549,77 +1549,177 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getOr().apply(this);
         }
-        if(node.getLogicalExpr() != null)
+        if(node.getAndOperation() != null)
         {
-            node.getLogicalExpr().apply(this);
+            node.getAndOperation().apply(this);
         }
-        outAExprAndLogicalExprExpr(node);
+        outAOrOperationExpr(node);
     }
 
-    public void inAExprOrLogicalExprExpr(AExprOrLogicalExprExpr node)
+    public void inAMissingOrExpr(AMissingOrExpr node)
     {
         defaultIn(node);
     }
 
-    public void outAExprOrLogicalExprExpr(AExprOrLogicalExprExpr node)
+    public void outAMissingOrExpr(AMissingOrExpr node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAExprOrLogicalExprExpr(AExprOrLogicalExprExpr node)
+    public void caseAMissingOrExpr(AMissingOrExpr node)
     {
-        inAExprOrLogicalExprExpr(node);
-        if(node.getExpr() != null)
+        inAMissingOrExpr(node);
+        if(node.getAndOperation() != null)
         {
-            node.getExpr().apply(this);
+            node.getAndOperation().apply(this);
+        }
+        outAMissingOrExpr(node);
+    }
+
+    public void inAAndOperationAndOperation(AAndOperationAndOperation node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAAndOperationAndOperation(AAndOperationAndOperation node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAAndOperationAndOperation(AAndOperationAndOperation node)
+    {
+        inAAndOperationAndOperation(node);
+        if(node.getAndOperation() != null)
+        {
+            node.getAndOperation().apply(this);
         }
         if(node.getAnd() != null)
         {
             node.getAnd().apply(this);
         }
-        if(node.getLogicalExpr() != null)
+        if(node.getEqualityOperation() != null)
         {
-            node.getLogicalExpr().apply(this);
+            node.getEqualityOperation().apply(this);
         }
-        outAExprOrLogicalExprExpr(node);
+        outAAndOperationAndOperation(node);
     }
 
-    public void inALogicalExprExpr(ALogicalExprExpr node)
+    public void inAGreaterLessEqualOperationAndOperation(AGreaterLessEqualOperationAndOperation node)
     {
         defaultIn(node);
     }
 
-    public void outALogicalExprExpr(ALogicalExprExpr node)
+    public void outAGreaterLessEqualOperationAndOperation(AGreaterLessEqualOperationAndOperation node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALogicalExprExpr(ALogicalExprExpr node)
+    public void caseAGreaterLessEqualOperationAndOperation(AGreaterLessEqualOperationAndOperation node)
     {
-        inALogicalExprExpr(node);
-        if(node.getLogicalExpr() != null)
+        inAGreaterLessEqualOperationAndOperation(node);
+        if(node.getEqualityOperation() != null)
         {
-            node.getLogicalExpr().apply(this);
+            node.getEqualityOperation().apply(this);
         }
-        outALogicalExprExpr(node);
+        outAGreaterLessEqualOperationAndOperation(node);
     }
 
-    public void inALessThanLogicalExpr(ALessThanLogicalExpr node)
+    public void inAEqualsComparisonEqualityOperation(AEqualsComparisonEqualityOperation node)
     {
         defaultIn(node);
     }
 
-    public void outALessThanLogicalExpr(ALessThanLogicalExpr node)
+    public void outAEqualsComparisonEqualityOperation(AEqualsComparisonEqualityOperation node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALessThanLogicalExpr(ALessThanLogicalExpr node)
+    public void caseAEqualsComparisonEqualityOperation(AEqualsComparisonEqualityOperation node)
     {
-        inALessThanLogicalExpr(node);
+        inAEqualsComparisonEqualityOperation(node);
+        if(node.getEqualityOperation() != null)
+        {
+            node.getEqualityOperation().apply(this);
+        }
+        if(node.getEquals() != null)
+        {
+            node.getEquals().apply(this);
+        }
+        if(node.getGreaterLessEqualOperation() != null)
+        {
+            node.getGreaterLessEqualOperation().apply(this);
+        }
+        outAEqualsComparisonEqualityOperation(node);
+    }
+
+    public void inANotEqualsComparisonEqualityOperation(ANotEqualsComparisonEqualityOperation node)
+    {
+        defaultIn(node);
+    }
+
+    public void outANotEqualsComparisonEqualityOperation(ANotEqualsComparisonEqualityOperation node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseANotEqualsComparisonEqualityOperation(ANotEqualsComparisonEqualityOperation node)
+    {
+        inANotEqualsComparisonEqualityOperation(node);
+        if(node.getEqualityOperation() != null)
+        {
+            node.getEqualityOperation().apply(this);
+        }
+        if(node.getNotEquals() != null)
+        {
+            node.getNotEquals().apply(this);
+        }
+        if(node.getGreaterLessEqualOperation() != null)
+        {
+            node.getGreaterLessEqualOperation().apply(this);
+        }
+        outANotEqualsComparisonEqualityOperation(node);
+    }
+
+    public void inANoEqualityOperationEqualityOperation(ANoEqualityOperationEqualityOperation node)
+    {
+        defaultIn(node);
+    }
+
+    public void outANoEqualityOperationEqualityOperation(ANoEqualityOperationEqualityOperation node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseANoEqualityOperationEqualityOperation(ANoEqualityOperationEqualityOperation node)
+    {
+        inANoEqualityOperationEqualityOperation(node);
+        if(node.getGreaterLessEqualOperation() != null)
+        {
+            node.getGreaterLessEqualOperation().apply(this);
+        }
+        outANoEqualityOperationEqualityOperation(node);
+    }
+
+    public void inALessThanGreaterLessEqualOperation(ALessThanGreaterLessEqualOperation node)
+    {
+        defaultIn(node);
+    }
+
+    public void outALessThanGreaterLessEqualOperation(ALessThanGreaterLessEqualOperation node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseALessThanGreaterLessEqualOperation(ALessThanGreaterLessEqualOperation node)
+    {
+        inALessThanGreaterLessEqualOperation(node);
         if(node.getPlusMinusSrc() != null)
         {
             node.getPlusMinusSrc().apply(this);
@@ -1632,23 +1732,23 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getPlusMinusTarget().apply(this);
         }
-        outALessThanLogicalExpr(node);
+        outALessThanGreaterLessEqualOperation(node);
     }
 
-    public void inAGreaterThanLogicalExpr(AGreaterThanLogicalExpr node)
+    public void inAGreaterThanGreaterLessEqualOperation(AGreaterThanGreaterLessEqualOperation node)
     {
         defaultIn(node);
     }
 
-    public void outAGreaterThanLogicalExpr(AGreaterThanLogicalExpr node)
+    public void outAGreaterThanGreaterLessEqualOperation(AGreaterThanGreaterLessEqualOperation node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAGreaterThanLogicalExpr(AGreaterThanLogicalExpr node)
+    public void caseAGreaterThanGreaterLessEqualOperation(AGreaterThanGreaterLessEqualOperation node)
     {
-        inAGreaterThanLogicalExpr(node);
+        inAGreaterThanGreaterLessEqualOperation(node);
         if(node.getPlusMinusSrc() != null)
         {
             node.getPlusMinusSrc().apply(this);
@@ -1661,23 +1761,23 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getPlusMinusTarget().apply(this);
         }
-        outAGreaterThanLogicalExpr(node);
+        outAGreaterThanGreaterLessEqualOperation(node);
     }
 
-    public void inALessThanOrEqLogicalExpr(ALessThanOrEqLogicalExpr node)
+    public void inALessThanOrEqGreaterLessEqualOperation(ALessThanOrEqGreaterLessEqualOperation node)
     {
         defaultIn(node);
     }
 
-    public void outALessThanOrEqLogicalExpr(ALessThanOrEqLogicalExpr node)
+    public void outALessThanOrEqGreaterLessEqualOperation(ALessThanOrEqGreaterLessEqualOperation node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseALessThanOrEqLogicalExpr(ALessThanOrEqLogicalExpr node)
+    public void caseALessThanOrEqGreaterLessEqualOperation(ALessThanOrEqGreaterLessEqualOperation node)
     {
-        inALessThanOrEqLogicalExpr(node);
+        inALessThanOrEqGreaterLessEqualOperation(node);
         if(node.getPlusMinusSrc() != null)
         {
             node.getPlusMinusSrc().apply(this);
@@ -1690,23 +1790,23 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getPlusMinusTarget().apply(this);
         }
-        outALessThanOrEqLogicalExpr(node);
+        outALessThanOrEqGreaterLessEqualOperation(node);
     }
 
-    public void inAGreaterThanOrEqLogicalExpr(AGreaterThanOrEqLogicalExpr node)
+    public void inAGreaterThanOrEqGreaterLessEqualOperation(AGreaterThanOrEqGreaterLessEqualOperation node)
     {
         defaultIn(node);
     }
 
-    public void outAGreaterThanOrEqLogicalExpr(AGreaterThanOrEqLogicalExpr node)
+    public void outAGreaterThanOrEqGreaterLessEqualOperation(AGreaterThanOrEqGreaterLessEqualOperation node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAGreaterThanOrEqLogicalExpr(AGreaterThanOrEqLogicalExpr node)
+    public void caseAGreaterThanOrEqGreaterLessEqualOperation(AGreaterThanOrEqGreaterLessEqualOperation node)
     {
-        inAGreaterThanOrEqLogicalExpr(node);
+        inAGreaterThanOrEqGreaterLessEqualOperation(node);
         if(node.getPlusMinusSrc() != null)
         {
             node.getPlusMinusSrc().apply(this);
@@ -1719,86 +1819,28 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getPlusMinusTarget().apply(this);
         }
-        outAGreaterThanOrEqLogicalExpr(node);
+        outAGreaterThanOrEqGreaterLessEqualOperation(node);
     }
 
-    public void inAEqualsLogicalExpr(AEqualsLogicalExpr node)
+    public void inAPlusMinusExprGreaterLessEqualOperation(APlusMinusExprGreaterLessEqualOperation node)
     {
         defaultIn(node);
     }
 
-    public void outAEqualsLogicalExpr(AEqualsLogicalExpr node)
+    public void outAPlusMinusExprGreaterLessEqualOperation(APlusMinusExprGreaterLessEqualOperation node)
     {
         defaultOut(node);
     }
 
     @Override
-    public void caseAEqualsLogicalExpr(AEqualsLogicalExpr node)
+    public void caseAPlusMinusExprGreaterLessEqualOperation(APlusMinusExprGreaterLessEqualOperation node)
     {
-        inAEqualsLogicalExpr(node);
-        if(node.getPlusMinusSrc() != null)
-        {
-            node.getPlusMinusSrc().apply(this);
-        }
-        if(node.getEquals() != null)
-        {
-            node.getEquals().apply(this);
-        }
-        if(node.getPlusMinusTarget() != null)
-        {
-            node.getPlusMinusTarget().apply(this);
-        }
-        outAEqualsLogicalExpr(node);
-    }
-
-    public void inANotEqualsLogicalExpr(ANotEqualsLogicalExpr node)
-    {
-        defaultIn(node);
-    }
-
-    public void outANotEqualsLogicalExpr(ANotEqualsLogicalExpr node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseANotEqualsLogicalExpr(ANotEqualsLogicalExpr node)
-    {
-        inANotEqualsLogicalExpr(node);
-        if(node.getPlusMinusSrc() != null)
-        {
-            node.getPlusMinusSrc().apply(this);
-        }
-        if(node.getNotEquals() != null)
-        {
-            node.getNotEquals().apply(this);
-        }
-        if(node.getPlusMinusTarget() != null)
-        {
-            node.getPlusMinusTarget().apply(this);
-        }
-        outANotEqualsLogicalExpr(node);
-    }
-
-    public void inAPlusMinusExprLogicalExpr(APlusMinusExprLogicalExpr node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAPlusMinusExprLogicalExpr(APlusMinusExprLogicalExpr node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAPlusMinusExprLogicalExpr(APlusMinusExprLogicalExpr node)
-    {
-        inAPlusMinusExprLogicalExpr(node);
+        inAPlusMinusExprGreaterLessEqualOperation(node);
         if(node.getPlusMinusExpr() != null)
         {
             node.getPlusMinusExpr().apply(this);
         }
-        outAPlusMinusExprLogicalExpr(node);
+        outAPlusMinusExprGreaterLessEqualOperation(node);
     }
 
     public void inAAdditionPlusMinusExpr(AAdditionPlusMinusExpr node)
