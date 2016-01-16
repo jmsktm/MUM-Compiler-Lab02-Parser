@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AStmtStmts extends PStmts
+public final class AAm2M extends PM
 {
-    private PS _s_;
+    private POther _other_;
 
-    public AStmtStmts()
+    public AAm2M()
     {
         // Constructor
     }
 
-    public AStmtStmts(
-        @SuppressWarnings("hiding") PS _s_)
+    public AAm2M(
+        @SuppressWarnings("hiding") POther _other_)
     {
         // Constructor
-        setS(_s_);
+        setOther(_other_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AStmtStmts(
-            cloneNode(this._s_));
+        return new AAm2M(
+            cloneNode(this._other_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAStmtStmts(this);
+        ((Analysis) sw).caseAAm2M(this);
     }
 
-    public PS getS()
+    public POther getOther()
     {
-        return this._s_;
+        return this._other_;
     }
 
-    public void setS(PS node)
+    public void setOther(POther node)
     {
-        if(this._s_ != null)
+        if(this._other_ != null)
         {
-            this._s_.parent(null);
+            this._other_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._s_ = node;
+        this._other_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._s_);
+            + toString(this._other_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._s_ == child)
+        if(this._other_ == child)
         {
-            this._s_ = null;
+            this._other_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._s_ == oldChild)
+        if(this._other_ == oldChild)
         {
-            setS((PS) newChild);
+            setOther((POther) newChild);
             return;
         }
 

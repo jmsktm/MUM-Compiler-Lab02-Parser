@@ -8,7 +8,7 @@ import analysis.*;
 public final class AMultStmtStmts extends PStmts
 {
     private PStmts _stmts_;
-    private PStmt _stmt_;
+    private PS _s_;
 
     public AMultStmtStmts()
     {
@@ -17,12 +17,12 @@ public final class AMultStmtStmts extends PStmts
 
     public AMultStmtStmts(
         @SuppressWarnings("hiding") PStmts _stmts_,
-        @SuppressWarnings("hiding") PStmt _stmt_)
+        @SuppressWarnings("hiding") PS _s_)
     {
         // Constructor
         setStmts(_stmts_);
 
-        setStmt(_stmt_);
+        setS(_s_);
 
     }
 
@@ -31,7 +31,7 @@ public final class AMultStmtStmts extends PStmts
     {
         return new AMultStmtStmts(
             cloneNode(this._stmts_),
-            cloneNode(this._stmt_));
+            cloneNode(this._s_));
     }
 
     @Override
@@ -65,16 +65,16 @@ public final class AMultStmtStmts extends PStmts
         this._stmts_ = node;
     }
 
-    public PStmt getStmt()
+    public PS getS()
     {
-        return this._stmt_;
+        return this._s_;
     }
 
-    public void setStmt(PStmt node)
+    public void setS(PS node)
     {
-        if(this._stmt_ != null)
+        if(this._s_ != null)
         {
-            this._stmt_.parent(null);
+            this._s_.parent(null);
         }
 
         if(node != null)
@@ -87,7 +87,7 @@ public final class AMultStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmt_ = node;
+        this._s_ = node;
     }
 
     @Override
@@ -95,7 +95,7 @@ public final class AMultStmtStmts extends PStmts
     {
         return ""
             + toString(this._stmts_)
-            + toString(this._stmt_);
+            + toString(this._s_);
     }
 
     @Override
@@ -108,9 +108,9 @@ public final class AMultStmtStmts extends PStmts
             return;
         }
 
-        if(this._stmt_ == child)
+        if(this._s_ == child)
         {
-            this._stmt_ = null;
+            this._s_ = null;
             return;
         }
 
@@ -127,9 +127,9 @@ public final class AMultStmtStmts extends PStmts
             return;
         }
 
-        if(this._stmt_ == oldChild)
+        if(this._s_ == oldChild)
         {
-            setStmt((PStmt) newChild);
+            setS((PS) newChild);
             return;
         }
 

@@ -5,104 +5,44 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ADoWhileLoopSimpleStmt extends PSimpleStmt
+public final class AWhileLoopOther extends POther
 {
-    private TDo _do_;
-    private PStmts _stmts_;
     private TWhile _while_;
     private PCondition _condition_;
-    private TSemicolon _semicolon_;
+    private PBlock _block_;
 
-    public ADoWhileLoopSimpleStmt()
+    public AWhileLoopOther()
     {
         // Constructor
     }
 
-    public ADoWhileLoopSimpleStmt(
-        @SuppressWarnings("hiding") TDo _do_,
-        @SuppressWarnings("hiding") PStmts _stmts_,
+    public AWhileLoopOther(
         @SuppressWarnings("hiding") TWhile _while_,
         @SuppressWarnings("hiding") PCondition _condition_,
-        @SuppressWarnings("hiding") TSemicolon _semicolon_)
+        @SuppressWarnings("hiding") PBlock _block_)
     {
         // Constructor
-        setDo(_do_);
-
-        setStmts(_stmts_);
-
         setWhile(_while_);
 
         setCondition(_condition_);
 
-        setSemicolon(_semicolon_);
+        setBlock(_block_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new ADoWhileLoopSimpleStmt(
-            cloneNode(this._do_),
-            cloneNode(this._stmts_),
+        return new AWhileLoopOther(
             cloneNode(this._while_),
             cloneNode(this._condition_),
-            cloneNode(this._semicolon_));
+            cloneNode(this._block_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseADoWhileLoopSimpleStmt(this);
-    }
-
-    public TDo getDo()
-    {
-        return this._do_;
-    }
-
-    public void setDo(TDo node)
-    {
-        if(this._do_ != null)
-        {
-            this._do_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._do_ = node;
-    }
-
-    public PStmts getStmts()
-    {
-        return this._stmts_;
-    }
-
-    public void setStmts(PStmts node)
-    {
-        if(this._stmts_ != null)
-        {
-            this._stmts_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._stmts_ = node;
+        ((Analysis) sw).caseAWhileLoopOther(this);
     }
 
     public TWhile getWhile()
@@ -155,16 +95,16 @@ public final class ADoWhileLoopSimpleStmt extends PSimpleStmt
         this._condition_ = node;
     }
 
-    public TSemicolon getSemicolon()
+    public PBlock getBlock()
     {
-        return this._semicolon_;
+        return this._block_;
     }
 
-    public void setSemicolon(TSemicolon node)
+    public void setBlock(PBlock node)
     {
-        if(this._semicolon_ != null)
+        if(this._block_ != null)
         {
-            this._semicolon_.parent(null);
+            this._block_.parent(null);
         }
 
         if(node != null)
@@ -177,36 +117,22 @@ public final class ADoWhileLoopSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._semicolon_ = node;
+        this._block_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._do_)
-            + toString(this._stmts_)
             + toString(this._while_)
             + toString(this._condition_)
-            + toString(this._semicolon_);
+            + toString(this._block_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._do_ == child)
-        {
-            this._do_ = null;
-            return;
-        }
-
-        if(this._stmts_ == child)
-        {
-            this._stmts_ = null;
-            return;
-        }
-
         if(this._while_ == child)
         {
             this._while_ = null;
@@ -219,9 +145,9 @@ public final class ADoWhileLoopSimpleStmt extends PSimpleStmt
             return;
         }
 
-        if(this._semicolon_ == child)
+        if(this._block_ == child)
         {
-            this._semicolon_ = null;
+            this._block_ = null;
             return;
         }
 
@@ -232,18 +158,6 @@ public final class ADoWhileLoopSimpleStmt extends PSimpleStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._do_ == oldChild)
-        {
-            setDo((TDo) newChild);
-            return;
-        }
-
-        if(this._stmts_ == oldChild)
-        {
-            setStmts((PStmts) newChild);
-            return;
-        }
-
         if(this._while_ == oldChild)
         {
             setWhile((TWhile) newChild);
@@ -256,9 +170,9 @@ public final class ADoWhileLoopSimpleStmt extends PSimpleStmt
             return;
         }
 
-        if(this._semicolon_ == oldChild)
+        if(this._block_ == oldChild)
         {
-            setSemicolon((TSemicolon) newChild);
+            setBlock((PBlock) newChild);
             return;
         }
 

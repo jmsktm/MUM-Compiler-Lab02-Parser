@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ANoStatementSimpleStmt extends PSimpleStmt
+public final class ALocalDeclOther extends POther
 {
-    private TSemicolon _semicolon_;
+    private PLocalDecl _localDecl_;
 
-    public ANoStatementSimpleStmt()
+    public ALocalDeclOther()
     {
         // Constructor
     }
 
-    public ANoStatementSimpleStmt(
-        @SuppressWarnings("hiding") TSemicolon _semicolon_)
+    public ALocalDeclOther(
+        @SuppressWarnings("hiding") PLocalDecl _localDecl_)
     {
         // Constructor
-        setSemicolon(_semicolon_);
+        setLocalDecl(_localDecl_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new ANoStatementSimpleStmt(
-            cloneNode(this._semicolon_));
+        return new ALocalDeclOther(
+            cloneNode(this._localDecl_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseANoStatementSimpleStmt(this);
+        ((Analysis) sw).caseALocalDeclOther(this);
     }
 
-    public TSemicolon getSemicolon()
+    public PLocalDecl getLocalDecl()
     {
-        return this._semicolon_;
+        return this._localDecl_;
     }
 
-    public void setSemicolon(TSemicolon node)
+    public void setLocalDecl(PLocalDecl node)
     {
-        if(this._semicolon_ != null)
+        if(this._localDecl_ != null)
         {
-            this._semicolon_.parent(null);
+            this._localDecl_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class ANoStatementSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._semicolon_ = node;
+        this._localDecl_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._semicolon_);
+            + toString(this._localDecl_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._semicolon_ == child)
+        if(this._localDecl_ == child)
         {
-            this._semicolon_ = null;
+            this._localDecl_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class ANoStatementSimpleStmt extends PSimpleStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._semicolon_ == oldChild)
+        if(this._localDecl_ == oldChild)
         {
-            setSemicolon((TSemicolon) newChild);
+            setLocalDecl((PLocalDecl) newChild);
             return;
         }
 

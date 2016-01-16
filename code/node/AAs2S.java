@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AStmtStmts extends PStmts
+public final class AAs2S extends PS
 {
-    private PS _s_;
+    private PU _u_;
 
-    public AStmtStmts()
+    public AAs2S()
     {
         // Constructor
     }
 
-    public AStmtStmts(
-        @SuppressWarnings("hiding") PS _s_)
+    public AAs2S(
+        @SuppressWarnings("hiding") PU _u_)
     {
         // Constructor
-        setS(_s_);
+        setU(_u_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AStmtStmts(
-            cloneNode(this._s_));
+        return new AAs2S(
+            cloneNode(this._u_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAStmtStmts(this);
+        ((Analysis) sw).caseAAs2S(this);
     }
 
-    public PS getS()
+    public PU getU()
     {
-        return this._s_;
+        return this._u_;
     }
 
-    public void setS(PS node)
+    public void setU(PU node)
     {
-        if(this._s_ != null)
+        if(this._u_ != null)
         {
-            this._s_.parent(null);
+            this._u_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._s_ = node;
+        this._u_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._s_);
+            + toString(this._u_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._s_ == child)
+        if(this._u_ == child)
         {
-            this._s_ = null;
+            this._u_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._s_ == oldChild)
+        if(this._u_ == oldChild)
         {
-            setS((PS) newChild);
+            setU((PU) newChild);
             return;
         }
 

@@ -2,7 +2,7 @@
 
 package node;
 
-public abstract class PSimpleStmt extends Node
+public abstract class PU extends Node
 {
     // Empty body
 }

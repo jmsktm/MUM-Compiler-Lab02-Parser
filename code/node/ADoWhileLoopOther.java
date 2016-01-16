@@ -5,30 +5,34 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AAssignmentSimpleStmt extends PSimpleStmt
+public final class ADoWhileLoopOther extends POther
 {
-    private PFieldAccess _fieldAccess_;
-    private TEqualTo _equalTo_;
-    private PExpr _expr_;
+    private TDo _do_;
+    private PStmts _stmts_;
+    private TWhile _while_;
+    private PCondition _condition_;
     private TSemicolon _semicolon_;
 
-    public AAssignmentSimpleStmt()
+    public ADoWhileLoopOther()
     {
         // Constructor
     }
 
-    public AAssignmentSimpleStmt(
-        @SuppressWarnings("hiding") PFieldAccess _fieldAccess_,
-        @SuppressWarnings("hiding") TEqualTo _equalTo_,
-        @SuppressWarnings("hiding") PExpr _expr_,
+    public ADoWhileLoopOther(
+        @SuppressWarnings("hiding") TDo _do_,
+        @SuppressWarnings("hiding") PStmts _stmts_,
+        @SuppressWarnings("hiding") TWhile _while_,
+        @SuppressWarnings("hiding") PCondition _condition_,
         @SuppressWarnings("hiding") TSemicolon _semicolon_)
     {
         // Constructor
-        setFieldAccess(_fieldAccess_);
+        setDo(_do_);
 
-        setEqualTo(_equalTo_);
+        setStmts(_stmts_);
 
-        setExpr(_expr_);
+        setWhile(_while_);
+
+        setCondition(_condition_);
 
         setSemicolon(_semicolon_);
 
@@ -37,29 +41,30 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
     @Override
     public Object clone()
     {
-        return new AAssignmentSimpleStmt(
-            cloneNode(this._fieldAccess_),
-            cloneNode(this._equalTo_),
-            cloneNode(this._expr_),
+        return new ADoWhileLoopOther(
+            cloneNode(this._do_),
+            cloneNode(this._stmts_),
+            cloneNode(this._while_),
+            cloneNode(this._condition_),
             cloneNode(this._semicolon_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAAssignmentSimpleStmt(this);
+        ((Analysis) sw).caseADoWhileLoopOther(this);
     }
 
-    public PFieldAccess getFieldAccess()
+    public TDo getDo()
     {
-        return this._fieldAccess_;
+        return this._do_;
     }
 
-    public void setFieldAccess(PFieldAccess node)
+    public void setDo(TDo node)
     {
-        if(this._fieldAccess_ != null)
+        if(this._do_ != null)
         {
-            this._fieldAccess_.parent(null);
+            this._do_.parent(null);
         }
 
         if(node != null)
@@ -72,19 +77,19 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._fieldAccess_ = node;
+        this._do_ = node;
     }
 
-    public TEqualTo getEqualTo()
+    public PStmts getStmts()
     {
-        return this._equalTo_;
+        return this._stmts_;
     }
 
-    public void setEqualTo(TEqualTo node)
+    public void setStmts(PStmts node)
     {
-        if(this._equalTo_ != null)
+        if(this._stmts_ != null)
         {
-            this._equalTo_.parent(null);
+            this._stmts_.parent(null);
         }
 
         if(node != null)
@@ -97,19 +102,19 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._equalTo_ = node;
+        this._stmts_ = node;
     }
 
-    public PExpr getExpr()
+    public TWhile getWhile()
     {
-        return this._expr_;
+        return this._while_;
     }
 
-    public void setExpr(PExpr node)
+    public void setWhile(TWhile node)
     {
-        if(this._expr_ != null)
+        if(this._while_ != null)
         {
-            this._expr_.parent(null);
+            this._while_.parent(null);
         }
 
         if(node != null)
@@ -122,7 +127,32 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._expr_ = node;
+        this._while_ = node;
+    }
+
+    public PCondition getCondition()
+    {
+        return this._condition_;
+    }
+
+    public void setCondition(PCondition node)
+    {
+        if(this._condition_ != null)
+        {
+            this._condition_.parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.parent() != null)
+            {
+                node.parent().removeChild(node);
+            }
+
+            node.parent(this);
+        }
+
+        this._condition_ = node;
     }
 
     public TSemicolon getSemicolon()
@@ -154,9 +184,10 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
     public String toString()
     {
         return ""
-            + toString(this._fieldAccess_)
-            + toString(this._equalTo_)
-            + toString(this._expr_)
+            + toString(this._do_)
+            + toString(this._stmts_)
+            + toString(this._while_)
+            + toString(this._condition_)
             + toString(this._semicolon_);
     }
 
@@ -164,21 +195,27 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._fieldAccess_ == child)
+        if(this._do_ == child)
         {
-            this._fieldAccess_ = null;
+            this._do_ = null;
             return;
         }
 
-        if(this._equalTo_ == child)
+        if(this._stmts_ == child)
         {
-            this._equalTo_ = null;
+            this._stmts_ = null;
             return;
         }
 
-        if(this._expr_ == child)
+        if(this._while_ == child)
         {
-            this._expr_ = null;
+            this._while_ = null;
+            return;
+        }
+
+        if(this._condition_ == child)
+        {
+            this._condition_ = null;
             return;
         }
 
@@ -195,21 +232,27 @@ public final class AAssignmentSimpleStmt extends PSimpleStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._fieldAccess_ == oldChild)
+        if(this._do_ == oldChild)
         {
-            setFieldAccess((PFieldAccess) newChild);
+            setDo((TDo) newChild);
             return;
         }
 
-        if(this._equalTo_ == oldChild)
+        if(this._stmts_ == oldChild)
         {
-            setEqualTo((TEqualTo) newChild);
+            setStmts((PStmts) newChild);
             return;
         }
 
-        if(this._expr_ == oldChild)
+        if(this._while_ == oldChild)
         {
-            setExpr((PExpr) newChild);
+            setWhile((TWhile) newChild);
+            return;
+        }
+
+        if(this._condition_ == oldChild)
+        {
+            setCondition((PCondition) newChild);
             return;
         }
 

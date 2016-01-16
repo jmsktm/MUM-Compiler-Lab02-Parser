@@ -174,17 +174,13 @@ Productions
         | {empty_block} l_brace r_brace;
     
     stmts =
-        {mult_stmt} stmts stmt
-        | {stmt} stmt;
-    
-    stmt = 
-        {simple_stmt} simple_stmt
-        | {if_else_stmt} if condition [if_stmt]:stmt else [else_stmt]:stmt;
+        {mult_stmt} stmts s
+        | {stmt} s;
     
     condition =
         {condition} l_par expr r_par;
     
-    simple_stmt =
+    other =
         {local_decl} local_decl
         | {assignment} field_access equal_to expr semicolon
         | {method_call} method_call semicolon
@@ -194,6 +190,14 @@ Productions
         | {while_loop} while condition block
         | {do_while_loop} do stmts while condition semicolon
         | {no_statement} semicolon;
+
+    s = {as1} m | {as2} u;
+
+    m = {am1} if condition [m1]:m else [m2]:m
+        | {am2} other;
+
+    u = {au1} if condition s
+        | {au2} if condition [u1]:m else [u2]:u;
     
     local_decl = 
         {var_decl} type identifier semicolon

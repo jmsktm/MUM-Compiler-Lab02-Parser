@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ASimpleStmtStmt extends PStmt
+public final class AAs1S extends PS
 {
-    private PSimpleStmt _simpleStmt_;
+    private PM _m_;
 
-    public ASimpleStmtStmt()
+    public AAs1S()
     {
         // Constructor
     }
 
-    public ASimpleStmtStmt(
-        @SuppressWarnings("hiding") PSimpleStmt _simpleStmt_)
+    public AAs1S(
+        @SuppressWarnings("hiding") PM _m_)
     {
         // Constructor
-        setSimpleStmt(_simpleStmt_);
+        setM(_m_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new ASimpleStmtStmt(
-            cloneNode(this._simpleStmt_));
+        return new AAs1S(
+            cloneNode(this._m_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseASimpleStmtStmt(this);
+        ((Analysis) sw).caseAAs1S(this);
     }
 
-    public PSimpleStmt getSimpleStmt()
+    public PM getM()
     {
-        return this._simpleStmt_;
+        return this._m_;
     }
 
-    public void setSimpleStmt(PSimpleStmt node)
+    public void setM(PM node)
     {
-        if(this._simpleStmt_ != null)
+        if(this._m_ != null)
         {
-            this._simpleStmt_.parent(null);
+            this._m_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class ASimpleStmtStmt extends PStmt
             node.parent(this);
         }
 
-        this._simpleStmt_ = node;
+        this._m_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._simpleStmt_);
+            + toString(this._m_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._simpleStmt_ == child)
+        if(this._m_ == child)
         {
-            this._simpleStmt_ = null;
+            this._m_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class ASimpleStmtStmt extends PStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._simpleStmt_ == oldChild)
+        if(this._m_ == oldChild)
         {
-            setSimpleStmt((PSimpleStmt) newChild);
+            setM((PM) newChild);
             return;
         }
 

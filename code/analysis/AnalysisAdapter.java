@@ -261,73 +261,97 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseASimpleStmtStmt(ASimpleStmtStmt node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAIfElseStmtStmt(AIfElseStmtStmt node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseAConditionCondition(AConditionCondition node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseALocalDeclSimpleStmt(ALocalDeclSimpleStmt node)
+    public void caseALocalDeclOther(ALocalDeclOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAssignmentSimpleStmt(AAssignmentSimpleStmt node)
+    public void caseAAssignmentOther(AAssignmentOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAMethodCallSimpleStmt(AMethodCallSimpleStmt node)
+    public void caseAMethodCallOther(AMethodCallOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAReturnVoidSimpleStmt(AReturnVoidSimpleStmt node)
+    public void caseAReturnVoidOther(AReturnVoidOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAReturnExprSimpleStmt(AReturnExprSimpleStmt node)
+    public void caseAReturnExprOther(AReturnExprOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseABlockSimpleStmt(ABlockSimpleStmt node)
+    public void caseABlockOther(ABlockOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAWhileLoopSimpleStmt(AWhileLoopSimpleStmt node)
+    public void caseAWhileLoopOther(AWhileLoopOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseADoWhileLoopSimpleStmt(ADoWhileLoopSimpleStmt node)
+    public void caseADoWhileLoopOther(ADoWhileLoopOther node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseANoStatementSimpleStmt(ANoStatementSimpleStmt node)
+    public void caseANoStatementOther(ANoStatementOther node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAs1S(AAs1S node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAs2S(AAs2S node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAm1M(AAm1M node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAm2M(AAm2M node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAu1U(AAu1U node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAu2U(AAu2U node)
     {
         defaultCase(node);
     }

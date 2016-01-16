@@ -5,54 +5,54 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AIfElseStmtStmt extends PStmt
+public final class AAm1M extends PM
 {
     private TIf _if_;
     private PCondition _condition_;
-    private PStmt _ifStmt_;
+    private PM _m1_;
     private TElse _else_;
-    private PStmt _elseStmt_;
+    private PM _m2_;
 
-    public AIfElseStmtStmt()
+    public AAm1M()
     {
         // Constructor
     }
 
-    public AIfElseStmtStmt(
+    public AAm1M(
         @SuppressWarnings("hiding") TIf _if_,
         @SuppressWarnings("hiding") PCondition _condition_,
-        @SuppressWarnings("hiding") PStmt _ifStmt_,
+        @SuppressWarnings("hiding") PM _m1_,
         @SuppressWarnings("hiding") TElse _else_,
-        @SuppressWarnings("hiding") PStmt _elseStmt_)
+        @SuppressWarnings("hiding") PM _m2_)
     {
         // Constructor
         setIf(_if_);
 
         setCondition(_condition_);
 
-        setIfStmt(_ifStmt_);
+        setM1(_m1_);
 
         setElse(_else_);
 
-        setElseStmt(_elseStmt_);
+        setM2(_m2_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AIfElseStmtStmt(
+        return new AAm1M(
             cloneNode(this._if_),
             cloneNode(this._condition_),
-            cloneNode(this._ifStmt_),
+            cloneNode(this._m1_),
             cloneNode(this._else_),
-            cloneNode(this._elseStmt_));
+            cloneNode(this._m2_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAIfElseStmtStmt(this);
+        ((Analysis) sw).caseAAm1M(this);
     }
 
     public TIf getIf()
@@ -105,16 +105,16 @@ public final class AIfElseStmtStmt extends PStmt
         this._condition_ = node;
     }
 
-    public PStmt getIfStmt()
+    public PM getM1()
     {
-        return this._ifStmt_;
+        return this._m1_;
     }
 
-    public void setIfStmt(PStmt node)
+    public void setM1(PM node)
     {
-        if(this._ifStmt_ != null)
+        if(this._m1_ != null)
         {
-            this._ifStmt_.parent(null);
+            this._m1_.parent(null);
         }
 
         if(node != null)
@@ -127,7 +127,7 @@ public final class AIfElseStmtStmt extends PStmt
             node.parent(this);
         }
 
-        this._ifStmt_ = node;
+        this._m1_ = node;
     }
 
     public TElse getElse()
@@ -155,16 +155,16 @@ public final class AIfElseStmtStmt extends PStmt
         this._else_ = node;
     }
 
-    public PStmt getElseStmt()
+    public PM getM2()
     {
-        return this._elseStmt_;
+        return this._m2_;
     }
 
-    public void setElseStmt(PStmt node)
+    public void setM2(PM node)
     {
-        if(this._elseStmt_ != null)
+        if(this._m2_ != null)
         {
-            this._elseStmt_.parent(null);
+            this._m2_.parent(null);
         }
 
         if(node != null)
@@ -177,7 +177,7 @@ public final class AIfElseStmtStmt extends PStmt
             node.parent(this);
         }
 
-        this._elseStmt_ = node;
+        this._m2_ = node;
     }
 
     @Override
@@ -186,9 +186,9 @@ public final class AIfElseStmtStmt extends PStmt
         return ""
             + toString(this._if_)
             + toString(this._condition_)
-            + toString(this._ifStmt_)
+            + toString(this._m1_)
             + toString(this._else_)
-            + toString(this._elseStmt_);
+            + toString(this._m2_);
     }
 
     @Override
@@ -207,9 +207,9 @@ public final class AIfElseStmtStmt extends PStmt
             return;
         }
 
-        if(this._ifStmt_ == child)
+        if(this._m1_ == child)
         {
-            this._ifStmt_ = null;
+            this._m1_ = null;
             return;
         }
 
@@ -219,9 +219,9 @@ public final class AIfElseStmtStmt extends PStmt
             return;
         }
 
-        if(this._elseStmt_ == child)
+        if(this._m2_ == child)
         {
-            this._elseStmt_ = null;
+            this._m2_ = null;
             return;
         }
 
@@ -244,9 +244,9 @@ public final class AIfElseStmtStmt extends PStmt
             return;
         }
 
-        if(this._ifStmt_ == oldChild)
+        if(this._m1_ == oldChild)
         {
-            setIfStmt((PStmt) newChild);
+            setM1((PM) newChild);
             return;
         }
 
@@ -256,9 +256,9 @@ public final class AIfElseStmtStmt extends PStmt
             return;
         }
 
-        if(this._elseStmt_ == oldChild)
+        if(this._m2_ == oldChild)
         {
-            setElseStmt((PStmt) newChild);
+            setM2((PM) newChild);
             return;
         }
 

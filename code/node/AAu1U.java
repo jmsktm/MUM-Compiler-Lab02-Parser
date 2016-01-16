@@ -5,56 +5,56 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AWhileLoopSimpleStmt extends PSimpleStmt
+public final class AAu1U extends PU
 {
-    private TWhile _while_;
+    private TIf _if_;
     private PCondition _condition_;
-    private PBlock _block_;
+    private PS _s_;
 
-    public AWhileLoopSimpleStmt()
+    public AAu1U()
     {
         // Constructor
     }
 
-    public AWhileLoopSimpleStmt(
-        @SuppressWarnings("hiding") TWhile _while_,
+    public AAu1U(
+        @SuppressWarnings("hiding") TIf _if_,
         @SuppressWarnings("hiding") PCondition _condition_,
-        @SuppressWarnings("hiding") PBlock _block_)
+        @SuppressWarnings("hiding") PS _s_)
     {
         // Constructor
-        setWhile(_while_);
+        setIf(_if_);
 
         setCondition(_condition_);
 
-        setBlock(_block_);
+        setS(_s_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AWhileLoopSimpleStmt(
-            cloneNode(this._while_),
+        return new AAu1U(
+            cloneNode(this._if_),
             cloneNode(this._condition_),
-            cloneNode(this._block_));
+            cloneNode(this._s_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAWhileLoopSimpleStmt(this);
+        ((Analysis) sw).caseAAu1U(this);
     }
 
-    public TWhile getWhile()
+    public TIf getIf()
     {
-        return this._while_;
+        return this._if_;
     }
 
-    public void setWhile(TWhile node)
+    public void setIf(TIf node)
     {
-        if(this._while_ != null)
+        if(this._if_ != null)
         {
-            this._while_.parent(null);
+            this._if_.parent(null);
         }
 
         if(node != null)
@@ -67,7 +67,7 @@ public final class AWhileLoopSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._while_ = node;
+        this._if_ = node;
     }
 
     public PCondition getCondition()
@@ -95,16 +95,16 @@ public final class AWhileLoopSimpleStmt extends PSimpleStmt
         this._condition_ = node;
     }
 
-    public PBlock getBlock()
+    public PS getS()
     {
-        return this._block_;
+        return this._s_;
     }
 
-    public void setBlock(PBlock node)
+    public void setS(PS node)
     {
-        if(this._block_ != null)
+        if(this._s_ != null)
         {
-            this._block_.parent(null);
+            this._s_.parent(null);
         }
 
         if(node != null)
@@ -117,25 +117,25 @@ public final class AWhileLoopSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._block_ = node;
+        this._s_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._while_)
+            + toString(this._if_)
             + toString(this._condition_)
-            + toString(this._block_);
+            + toString(this._s_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._while_ == child)
+        if(this._if_ == child)
         {
-            this._while_ = null;
+            this._if_ = null;
             return;
         }
 
@@ -145,9 +145,9 @@ public final class AWhileLoopSimpleStmt extends PSimpleStmt
             return;
         }
 
-        if(this._block_ == child)
+        if(this._s_ == child)
         {
-            this._block_ = null;
+            this._s_ = null;
             return;
         }
 
@@ -158,9 +158,9 @@ public final class AWhileLoopSimpleStmt extends PSimpleStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._while_ == oldChild)
+        if(this._if_ == oldChild)
         {
-            setWhile((TWhile) newChild);
+            setIf((TIf) newChild);
             return;
         }
 
@@ -170,9 +170,9 @@ public final class AWhileLoopSimpleStmt extends PSimpleStmt
             return;
         }
 
-        if(this._block_ == oldChild)
+        if(this._s_ == oldChild)
         {
-            setBlock((PBlock) newChild);
+            setS((PS) newChild);
             return;
         }
 

@@ -5,26 +5,22 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AReturnExprSimpleStmt extends PSimpleStmt
+public final class AMethodCallOther extends POther
 {
-    private TReturn _return_;
-    private PExpr _expr_;
+    private PMethodCall _methodCall_;
     private TSemicolon _semicolon_;
 
-    public AReturnExprSimpleStmt()
+    public AMethodCallOther()
     {
         // Constructor
     }
 
-    public AReturnExprSimpleStmt(
-        @SuppressWarnings("hiding") TReturn _return_,
-        @SuppressWarnings("hiding") PExpr _expr_,
+    public AMethodCallOther(
+        @SuppressWarnings("hiding") PMethodCall _methodCall_,
         @SuppressWarnings("hiding") TSemicolon _semicolon_)
     {
         // Constructor
-        setReturn(_return_);
-
-        setExpr(_expr_);
+        setMethodCall(_methodCall_);
 
         setSemicolon(_semicolon_);
 
@@ -33,28 +29,27 @@ public final class AReturnExprSimpleStmt extends PSimpleStmt
     @Override
     public Object clone()
     {
-        return new AReturnExprSimpleStmt(
-            cloneNode(this._return_),
-            cloneNode(this._expr_),
+        return new AMethodCallOther(
+            cloneNode(this._methodCall_),
             cloneNode(this._semicolon_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAReturnExprSimpleStmt(this);
+        ((Analysis) sw).caseAMethodCallOther(this);
     }
 
-    public TReturn getReturn()
+    public PMethodCall getMethodCall()
     {
-        return this._return_;
+        return this._methodCall_;
     }
 
-    public void setReturn(TReturn node)
+    public void setMethodCall(PMethodCall node)
     {
-        if(this._return_ != null)
+        if(this._methodCall_ != null)
         {
-            this._return_.parent(null);
+            this._methodCall_.parent(null);
         }
 
         if(node != null)
@@ -67,32 +62,7 @@ public final class AReturnExprSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._return_ = node;
-    }
-
-    public PExpr getExpr()
-    {
-        return this._expr_;
-    }
-
-    public void setExpr(PExpr node)
-    {
-        if(this._expr_ != null)
-        {
-            this._expr_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._expr_ = node;
+        this._methodCall_ = node;
     }
 
     public TSemicolon getSemicolon()
@@ -124,8 +94,7 @@ public final class AReturnExprSimpleStmt extends PSimpleStmt
     public String toString()
     {
         return ""
-            + toString(this._return_)
-            + toString(this._expr_)
+            + toString(this._methodCall_)
             + toString(this._semicolon_);
     }
 
@@ -133,15 +102,9 @@ public final class AReturnExprSimpleStmt extends PSimpleStmt
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._return_ == child)
+        if(this._methodCall_ == child)
         {
-            this._return_ = null;
-            return;
-        }
-
-        if(this._expr_ == child)
-        {
-            this._expr_ = null;
+            this._methodCall_ = null;
             return;
         }
 
@@ -158,15 +121,9 @@ public final class AReturnExprSimpleStmt extends PSimpleStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._return_ == oldChild)
+        if(this._methodCall_ == oldChild)
         {
-            setReturn((TReturn) newChild);
-            return;
-        }
-
-        if(this._expr_ == oldChild)
-        {
-            setExpr((PExpr) newChild);
+            setMethodCall((PMethodCall) newChild);
             return;
         }
 

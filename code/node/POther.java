@@ -2,7 +2,7 @@
 
 package node;
 
-public abstract class PStmt extends Node
+public abstract class POther extends Node
 {
     // Empty body
 }

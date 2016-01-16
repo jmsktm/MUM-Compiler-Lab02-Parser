@@ -5,22 +5,22 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AMethodCallSimpleStmt extends PSimpleStmt
+public final class AReturnVoidOther extends POther
 {
-    private PMethodCall _methodCall_;
+    private TReturn _return_;
     private TSemicolon _semicolon_;
 
-    public AMethodCallSimpleStmt()
+    public AReturnVoidOther()
     {
         // Constructor
     }
 
-    public AMethodCallSimpleStmt(
-        @SuppressWarnings("hiding") PMethodCall _methodCall_,
+    public AReturnVoidOther(
+        @SuppressWarnings("hiding") TReturn _return_,
         @SuppressWarnings("hiding") TSemicolon _semicolon_)
     {
         // Constructor
-        setMethodCall(_methodCall_);
+        setReturn(_return_);
 
         setSemicolon(_semicolon_);
 
@@ -29,27 +29,27 @@ public final class AMethodCallSimpleStmt extends PSimpleStmt
     @Override
     public Object clone()
     {
-        return new AMethodCallSimpleStmt(
-            cloneNode(this._methodCall_),
+        return new AReturnVoidOther(
+            cloneNode(this._return_),
             cloneNode(this._semicolon_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAMethodCallSimpleStmt(this);
+        ((Analysis) sw).caseAReturnVoidOther(this);
     }
 
-    public PMethodCall getMethodCall()
+    public TReturn getReturn()
     {
-        return this._methodCall_;
+        return this._return_;
     }
 
-    public void setMethodCall(PMethodCall node)
+    public void setReturn(TReturn node)
     {
-        if(this._methodCall_ != null)
+        if(this._return_ != null)
         {
-            this._methodCall_.parent(null);
+            this._return_.parent(null);
         }
 
         if(node != null)
@@ -62,7 +62,7 @@ public final class AMethodCallSimpleStmt extends PSimpleStmt
             node.parent(this);
         }
 
-        this._methodCall_ = node;
+        this._return_ = node;
     }
 
     public TSemicolon getSemicolon()
@@ -94,7 +94,7 @@ public final class AMethodCallSimpleStmt extends PSimpleStmt
     public String toString()
     {
         return ""
-            + toString(this._methodCall_)
+            + toString(this._return_)
             + toString(this._semicolon_);
     }
 
@@ -102,9 +102,9 @@ public final class AMethodCallSimpleStmt extends PSimpleStmt
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._methodCall_ == child)
+        if(this._return_ == child)
         {
-            this._methodCall_ = null;
+            this._return_ = null;
             return;
         }
 
@@ -121,9 +121,9 @@ public final class AMethodCallSimpleStmt extends PSimpleStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._methodCall_ == oldChild)
+        if(this._return_ == oldChild)
         {
-            setMethodCall((PMethodCall) newChild);
+            setReturn((TReturn) newChild);
             return;
         }
 

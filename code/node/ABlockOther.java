@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class ABlockSimpleStmt extends PSimpleStmt
+public final class ABlockOther extends POther
 {
     private PBlock _block_;
 
-    public ABlockSimpleStmt()
+    public ABlockOther()
     {
         // Constructor
     }
 
-    public ABlockSimpleStmt(
+    public ABlockOther(
         @SuppressWarnings("hiding") PBlock _block_)
     {
         // Constructor
@@ -25,14 +25,14 @@ public final class ABlockSimpleStmt extends PSimpleStmt
     @Override
     public Object clone()
     {
-        return new ABlockSimpleStmt(
+        return new ABlockOther(
             cloneNode(this._block_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseABlockSimpleStmt(this);
+        ((Analysis) sw).caseABlockOther(this);
     }
 
     public PBlock getBlock()
