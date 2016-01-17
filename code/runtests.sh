@@ -48,7 +48,7 @@ echo "" >> output.txt
 echo "" >> output.txt
 
 echo "java ParserDriver tests/in07.cp >> output.txt" >> output.txt
-java ParserDriver tests/in08.cp >> output.txt
+java ParserDriver tests/in07.cp >> output.txt
 echo "" >> output.txt
 echo "" >> output.txt
 echo "" >> output.txt
