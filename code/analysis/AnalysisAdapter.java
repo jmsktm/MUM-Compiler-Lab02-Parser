@@ -267,91 +267,91 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseALocalDeclOther(ALocalDeclOther node)
+    public void caseALocalDeclOtherStmt(ALocalDeclOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAssignmentOther(AAssignmentOther node)
+    public void caseAAssignmentOtherStmt(AAssignmentOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAMethodCallOther(AMethodCallOther node)
+    public void caseAMethodCallOtherStmt(AMethodCallOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAReturnVoidOther(AReturnVoidOther node)
+    public void caseAReturnVoidOtherStmt(AReturnVoidOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAReturnExprOther(AReturnExprOther node)
+    public void caseAReturnExprOtherStmt(AReturnExprOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseABlockOther(ABlockOther node)
+    public void caseABlockOtherStmt(ABlockOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAWhileLoopOther(AWhileLoopOther node)
+    public void caseAWhileLoopOtherStmt(AWhileLoopOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseADoWhileLoopOther(ADoWhileLoopOther node)
+    public void caseADoWhileLoopOtherStmt(ADoWhileLoopOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseANoStatementOther(ANoStatementOther node)
+    public void caseANoStatementOtherStmt(ANoStatementOtherStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAs1S(AAs1S node)
+    public void caseAMatchedIfStmt(AMatchedIfStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAs2S(AAs2S node)
+    public void caseAUnmatchedIfStmt(AUnmatchedIfStmt node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAm1M(AAm1M node)
+    public void caseAMatchedIfDefMatchedIf(AMatchedIfDefMatchedIf node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAm2M(AAm2M node)
+    public void caseAOtherStmtMatchedIf(AOtherStmtMatchedIf node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAu1U(AAu1U node)
+    public void caseAUnmatchedIfWithoutElseUnmatchedIf(AUnmatchedIfWithoutElseUnmatchedIf node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAAu2U(AAu2U node)
+    public void caseAUnmatchedElseWithElseUnmatchedIf(AUnmatchedElseWithElseUnmatchedIf node)
     {
         defaultCase(node);
     }

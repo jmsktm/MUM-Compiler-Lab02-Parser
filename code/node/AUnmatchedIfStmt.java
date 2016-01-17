@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AStmtStmts extends PStmts
+public final class AUnmatchedIfStmt extends PStmt
 {
-    private PStmt _stmt_;
+    private PUnmatchedIf _unmatchedIf_;
 
-    public AStmtStmts()
+    public AUnmatchedIfStmt()
     {
         // Constructor
     }
 
-    public AStmtStmts(
-        @SuppressWarnings("hiding") PStmt _stmt_)
+    public AUnmatchedIfStmt(
+        @SuppressWarnings("hiding") PUnmatchedIf _unmatchedIf_)
     {
         // Constructor
-        setStmt(_stmt_);
+        setUnmatchedIf(_unmatchedIf_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AStmtStmts(
-            cloneNode(this._stmt_));
+        return new AUnmatchedIfStmt(
+            cloneNode(this._unmatchedIf_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAStmtStmts(this);
+        ((Analysis) sw).caseAUnmatchedIfStmt(this);
     }
 
-    public PStmt getStmt()
+    public PUnmatchedIf getUnmatchedIf()
     {
-        return this._stmt_;
+        return this._unmatchedIf_;
     }
 
-    public void setStmt(PStmt node)
+    public void setUnmatchedIf(PUnmatchedIf node)
     {
-        if(this._stmt_ != null)
+        if(this._unmatchedIf_ != null)
         {
-            this._stmt_.parent(null);
+            this._unmatchedIf_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmt_ = node;
+        this._unmatchedIf_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._stmt_);
+            + toString(this._unmatchedIf_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._stmt_ == child)
+        if(this._unmatchedIf_ == child)
         {
-            this._stmt_ = null;
+            this._unmatchedIf_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._stmt_ == oldChild)
+        if(this._unmatchedIf_ == oldChild)
         {
-            setStmt((PStmt) newChild);
+            setUnmatchedIf((PUnmatchedIf) newChild);
             return;
         }
 

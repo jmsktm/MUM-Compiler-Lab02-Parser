@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AStmtStmts extends PStmts
+public final class ABlockOtherStmt extends POtherStmt
 {
-    private PStmt _stmt_;
+    private PBlock _block_;
 
-    public AStmtStmts()
+    public ABlockOtherStmt()
     {
         // Constructor
     }
 
-    public AStmtStmts(
-        @SuppressWarnings("hiding") PStmt _stmt_)
+    public ABlockOtherStmt(
+        @SuppressWarnings("hiding") PBlock _block_)
     {
         // Constructor
-        setStmt(_stmt_);
+        setBlock(_block_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AStmtStmts(
-            cloneNode(this._stmt_));
+        return new ABlockOtherStmt(
+            cloneNode(this._block_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAStmtStmts(this);
+        ((Analysis) sw).caseABlockOtherStmt(this);
     }
 
-    public PStmt getStmt()
+    public PBlock getBlock()
     {
-        return this._stmt_;
+        return this._block_;
     }
 
-    public void setStmt(PStmt node)
+    public void setBlock(PBlock node)
     {
-        if(this._stmt_ != null)
+        if(this._block_ != null)
         {
-            this._stmt_.parent(null);
+            this._block_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmt_ = node;
+        this._block_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._stmt_);
+            + toString(this._block_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._stmt_ == child)
+        if(this._block_ == child)
         {
-            this._stmt_ = null;
+            this._block_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._stmt_ == oldChild)
+        if(this._block_ == oldChild)
         {
-            setStmt((PStmt) newChild);
+            setBlock((PBlock) newChild);
             return;
         }
 

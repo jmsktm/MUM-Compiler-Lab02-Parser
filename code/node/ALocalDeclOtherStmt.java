@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AStmtStmts extends PStmts
+public final class ALocalDeclOtherStmt extends POtherStmt
 {
-    private PStmt _stmt_;
+    private PLocalDecl _localDecl_;
 
-    public AStmtStmts()
+    public ALocalDeclOtherStmt()
     {
         // Constructor
     }
 
-    public AStmtStmts(
-        @SuppressWarnings("hiding") PStmt _stmt_)
+    public ALocalDeclOtherStmt(
+        @SuppressWarnings("hiding") PLocalDecl _localDecl_)
     {
         // Constructor
-        setStmt(_stmt_);
+        setLocalDecl(_localDecl_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AStmtStmts(
-            cloneNode(this._stmt_));
+        return new ALocalDeclOtherStmt(
+            cloneNode(this._localDecl_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAStmtStmts(this);
+        ((Analysis) sw).caseALocalDeclOtherStmt(this);
     }
 
-    public PStmt getStmt()
+    public PLocalDecl getLocalDecl()
     {
-        return this._stmt_;
+        return this._localDecl_;
     }
 
-    public void setStmt(PStmt node)
+    public void setLocalDecl(PLocalDecl node)
     {
-        if(this._stmt_ != null)
+        if(this._localDecl_ != null)
         {
-            this._stmt_.parent(null);
+            this._localDecl_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmt_ = node;
+        this._localDecl_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._stmt_);
+            + toString(this._localDecl_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._stmt_ == child)
+        if(this._localDecl_ == child)
         {
-            this._stmt_ = null;
+            this._localDecl_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._stmt_ == oldChild)
+        if(this._localDecl_ == oldChild)
         {
-            setStmt((PStmt) newChild);
+            setLocalDecl((PLocalDecl) newChild);
             return;
         }
 

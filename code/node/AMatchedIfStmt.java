@@ -5,46 +5,46 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AStmtStmts extends PStmts
+public final class AMatchedIfStmt extends PStmt
 {
-    private PStmt _stmt_;
+    private PMatchedIf _matchedIf_;
 
-    public AStmtStmts()
+    public AMatchedIfStmt()
     {
         // Constructor
     }
 
-    public AStmtStmts(
-        @SuppressWarnings("hiding") PStmt _stmt_)
+    public AMatchedIfStmt(
+        @SuppressWarnings("hiding") PMatchedIf _matchedIf_)
     {
         // Constructor
-        setStmt(_stmt_);
+        setMatchedIf(_matchedIf_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AStmtStmts(
-            cloneNode(this._stmt_));
+        return new AMatchedIfStmt(
+            cloneNode(this._matchedIf_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAStmtStmts(this);
+        ((Analysis) sw).caseAMatchedIfStmt(this);
     }
 
-    public PStmt getStmt()
+    public PMatchedIf getMatchedIf()
     {
-        return this._stmt_;
+        return this._matchedIf_;
     }
 
-    public void setStmt(PStmt node)
+    public void setMatchedIf(PMatchedIf node)
     {
-        if(this._stmt_ != null)
+        if(this._matchedIf_ != null)
         {
-            this._stmt_.parent(null);
+            this._matchedIf_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmt_ = node;
+        this._matchedIf_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._stmt_);
+            + toString(this._matchedIf_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._stmt_ == child)
+        if(this._matchedIf_ == child)
         {
-            this._stmt_ = null;
+            this._matchedIf_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._stmt_ == oldChild)
+        if(this._matchedIf_ == oldChild)
         {
-            setStmt((PStmt) newChild);
+            setMatchedIf((PMatchedIf) newChild);
             return;
         }
 

@@ -5,51 +5,51 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AMultStmtStmts extends PStmts
+public final class AReturnVoidOtherStmt extends POtherStmt
 {
-    private PStmts _stmts_;
-    private PStmt _stmt_;
+    private TReturn _return_;
+    private TSemicolon _semicolon_;
 
-    public AMultStmtStmts()
+    public AReturnVoidOtherStmt()
     {
         // Constructor
     }
 
-    public AMultStmtStmts(
-        @SuppressWarnings("hiding") PStmts _stmts_,
-        @SuppressWarnings("hiding") PStmt _stmt_)
+    public AReturnVoidOtherStmt(
+        @SuppressWarnings("hiding") TReturn _return_,
+        @SuppressWarnings("hiding") TSemicolon _semicolon_)
     {
         // Constructor
-        setStmts(_stmts_);
+        setReturn(_return_);
 
-        setStmt(_stmt_);
+        setSemicolon(_semicolon_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AMultStmtStmts(
-            cloneNode(this._stmts_),
-            cloneNode(this._stmt_));
+        return new AReturnVoidOtherStmt(
+            cloneNode(this._return_),
+            cloneNode(this._semicolon_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAMultStmtStmts(this);
+        ((Analysis) sw).caseAReturnVoidOtherStmt(this);
     }
 
-    public PStmts getStmts()
+    public TReturn getReturn()
     {
-        return this._stmts_;
+        return this._return_;
     }
 
-    public void setStmts(PStmts node)
+    public void setReturn(TReturn node)
     {
-        if(this._stmts_ != null)
+        if(this._return_ != null)
         {
-            this._stmts_.parent(null);
+            this._return_.parent(null);
         }
 
         if(node != null)
@@ -62,19 +62,19 @@ public final class AMultStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmts_ = node;
+        this._return_ = node;
     }
 
-    public PStmt getStmt()
+    public TSemicolon getSemicolon()
     {
-        return this._stmt_;
+        return this._semicolon_;
     }
 
-    public void setStmt(PStmt node)
+    public void setSemicolon(TSemicolon node)
     {
-        if(this._stmt_ != null)
+        if(this._semicolon_ != null)
         {
-            this._stmt_.parent(null);
+            this._semicolon_.parent(null);
         }
 
         if(node != null)
@@ -87,30 +87,30 @@ public final class AMultStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmt_ = node;
+        this._semicolon_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._stmts_)
-            + toString(this._stmt_);
+            + toString(this._return_)
+            + toString(this._semicolon_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._stmts_ == child)
+        if(this._return_ == child)
         {
-            this._stmts_ = null;
+            this._return_ = null;
             return;
         }
 
-        if(this._stmt_ == child)
+        if(this._semicolon_ == child)
         {
-            this._stmt_ = null;
+            this._semicolon_ = null;
             return;
         }
 
@@ -121,15 +121,15 @@ public final class AMultStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._stmts_ == oldChild)
+        if(this._return_ == oldChild)
         {
-            setStmts((PStmts) newChild);
+            setReturn((TReturn) newChild);
             return;
         }
 
-        if(this._stmt_ == oldChild)
+        if(this._semicolon_ == oldChild)
         {
-            setStmt((PStmt) newChild);
+            setSemicolon((TSemicolon) newChild);
             return;
         }
 

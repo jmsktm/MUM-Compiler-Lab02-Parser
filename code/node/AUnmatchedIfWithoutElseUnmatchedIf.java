@@ -5,22 +5,26 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class AMultStmtStmts extends PStmts
+public final class AUnmatchedIfWithoutElseUnmatchedIf extends PUnmatchedIf
 {
-    private PStmts _stmts_;
+    private TIf _if_;
+    private PCondition _condition_;
     private PStmt _stmt_;
 
-    public AMultStmtStmts()
+    public AUnmatchedIfWithoutElseUnmatchedIf()
     {
         // Constructor
     }
 
-    public AMultStmtStmts(
-        @SuppressWarnings("hiding") PStmts _stmts_,
+    public AUnmatchedIfWithoutElseUnmatchedIf(
+        @SuppressWarnings("hiding") TIf _if_,
+        @SuppressWarnings("hiding") PCondition _condition_,
         @SuppressWarnings("hiding") PStmt _stmt_)
     {
         // Constructor
-        setStmts(_stmts_);
+        setIf(_if_);
+
+        setCondition(_condition_);
 
         setStmt(_stmt_);
 
@@ -29,27 +33,28 @@ public final class AMultStmtStmts extends PStmts
     @Override
     public Object clone()
     {
-        return new AMultStmtStmts(
-            cloneNode(this._stmts_),
+        return new AUnmatchedIfWithoutElseUnmatchedIf(
+            cloneNode(this._if_),
+            cloneNode(this._condition_),
             cloneNode(this._stmt_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAMultStmtStmts(this);
+        ((Analysis) sw).caseAUnmatchedIfWithoutElseUnmatchedIf(this);
     }
 
-    public PStmts getStmts()
+    public TIf getIf()
     {
-        return this._stmts_;
+        return this._if_;
     }
 
-    public void setStmts(PStmts node)
+    public void setIf(TIf node)
     {
-        if(this._stmts_ != null)
+        if(this._if_ != null)
         {
-            this._stmts_.parent(null);
+            this._if_.parent(null);
         }
 
         if(node != null)
@@ -62,7 +67,32 @@ public final class AMultStmtStmts extends PStmts
             node.parent(this);
         }
 
-        this._stmts_ = node;
+        this._if_ = node;
+    }
+
+    public PCondition getCondition()
+    {
+        return this._condition_;
+    }
+
+    public void setCondition(PCondition node)
+    {
+        if(this._condition_ != null)
+        {
+            this._condition_.parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.parent() != null)
+            {
+                node.parent().removeChild(node);
+            }
+
+            node.parent(this);
+        }
+
+        this._condition_ = node;
     }
 
     public PStmt getStmt()
@@ -94,7 +124,8 @@ public final class AMultStmtStmts extends PStmts
     public String toString()
     {
         return ""
-            + toString(this._stmts_)
+            + toString(this._if_)
+            + toString(this._condition_)
             + toString(this._stmt_);
     }
 
@@ -102,9 +133,15 @@ public final class AMultStmtStmts extends PStmts
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._stmts_ == child)
+        if(this._if_ == child)
         {
-            this._stmts_ = null;
+            this._if_ = null;
+            return;
+        }
+
+        if(this._condition_ == child)
+        {
+            this._condition_ = null;
             return;
         }
 
@@ -121,9 +158,15 @@ public final class AMultStmtStmts extends PStmts
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._stmts_ == oldChild)
+        if(this._if_ == oldChild)
         {
-            setStmts((PStmts) newChild);
+            setIf((TIf) newChild);
+            return;
+        }
+
+        if(this._condition_ == oldChild)
+        {
+            setCondition((PCondition) newChild);
             return;
         }
 
