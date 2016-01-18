@@ -1,0 +1,3 @@
+Starting Lexer
+Starting Parser
+[7,3] expecting: ';', '{', '}', 'bool', 'char', 'do', 'float', 'if', 'int', 'return', 'string', 'while', identifier
